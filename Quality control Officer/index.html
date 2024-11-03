@@ -7,112 +7,161 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> <!-- Link to custom CSS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <nav class="sidebar bg-dark text-light p-3 vh-100">
-            <h2 class="text-center mb-4">Dashboard</h2>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-3">
-                    <a class="nav-link text-light" href="#"><i class="fas fa-tachometer-alt"></i> Overview</a>
-                </li>
-                <li class="nav-item mb-3">
-                    <a class="nav-link text-light" href="#"><i class="fas fa-file-alt"></i> Inspection Reports</a>
-                </li>
-                <li class="nav-item mb-3">
-                    <a class="nav-link text-light" href="#"><i class="fas fa-chart-line"></i> Quality Reports</a>
-                </li>
-                <li class="nav-item mb-3">
-                    <a class="nav-link text-light" href="#"><i class="fas fa-cogs"></i> Settings</a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Main Content -->
-        <div class="container-fluid p-4">
-            <h1>Quality Control Officer Dashboard</h1>
-            
-            <!-- Quality Reports Section -->
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-header">
-                            Inspection Reports
-                        </div>
-                        <div class="card-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="reportDate" class="form-label">Date</label>
-                                    <input type="date" class="form-control" id="reportDate">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="reportTime" class="form-label">Time</label>
-                                    <input type="time" class="form-control" id="reportTime">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="hygieneLevel" class="form-label">Hygiene Level</label>
-                                    <input type="text" class="form-control" id="hygieneLevel" placeholder="Enter hygiene level">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit Report</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quality Report Section -->
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-header">
-                            Quality Report
-                        </div>
-                        <div class="card-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="inspectionResult" class="form-label">Inspection Result</label>
-                                    <textarea class="form-control" id="inspectionResult" rows="3" placeholder="Enter inspection result"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-success">Save Report</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Assigned Inspections Section -->
-            <div class="card mt-4">
-                <div class="card-header">
-                    Assigned Inspections
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Report ID</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Hygiene Level</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>001</td>
-                                <td>2024-11-02</td>
-                                <td>10:00 AM</td>
-                                <td>High</td>
-                                <td>
-                                    <button class="btn btn-info btn-sm">View</button>
-                                    <button class="btn btn-warning btn-sm">Edit</button>
-                                </td>
-                            </tr>
-                            <!-- Additional rows for other reports -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div class="sidebar close">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">CodingLab</span>
         </div>
-    </div>
+        <ul class="nav-links">
+          <li>
+            <a href="#">
+              <i class='bx bx-grid-alt' ></i>
+              <span class="link_name">Dashboard</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Category</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bx-collection' ></i>
+                <span class="link_name">Category</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Category</a></li>
+              <li><a href="#">HTML & CSS</a></li>
+              <li><a href="#">JavaScript</a></li>
+              <li><a href="#">PHP & MySQL</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bx-book-alt' ></i>
+                <span class="link_name">Posts</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Posts</a></li>
+              <li><a href="#">Web Design</a></li>
+              <li><a href="#">Login Form</a></li>
+              <li><a href="#">Card Design</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-pie-chart-alt-2' ></i>
+              <span class="link_name">Analytics</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Analytics</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-line-chart' ></i>
+              <span class="link_name">Chart</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Chart</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bx-plug' ></i>
+                <span class="link_name">Plugins</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Plugins</a></li>
+              <li><a href="#">UI Face</a></li>
+              <li><a href="#">Pigments</a></li>
+              <li><a href="#">Box Icons</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-compass' ></i>
+              <span class="link_name">Explore</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Explore</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-history'></i>
+              <span class="link_name">History</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">History</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-cog' ></i>
+              <span class="link_name">Setting</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Setting</a></li>
+            </ul>
+          </li>
+          <li>
+        <div class="profile-details">
+          <div class="profile-content">
+            <!--<img src="image/profile.jpg" alt="profileImg">-->
+          </div>
+          <div class="name-job">
+            <div class="profile_name">Prem Shahi</div>
+            <div class="job">Web Desginer</div>
+          </div>
+          <i class='bx bx-log-out' ></i>
+        </div>
+      </li>
+    </ul>
+      </div>
+      <section class="home-section">
+        <div class="home-content">
+          <i class='bx bx-menu' ></i>
+          <span class="text">Quality Control Officer Dashboard</span>
+        </div>
+      </section>
+      
+  
+      <script>
+ let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+let menuItems = document.querySelectorAll(".nav-links li");
+
+// Open sidebar when mouse is over the menu button
+sidebarBtn.addEventListener("mouseover", () => {
+  sidebar.classList.remove("close");
+});
+
+// Open sidebar when hovering over any <li> item
+menuItems.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    sidebar.classList.remove("close");
+  });
+});
+
+// Close sidebar when mouse leaves the sidebar
+sidebar.addEventListener("mouseout", () => {
+  sidebar.classList.add("close");
+});
+
+
+
+      </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
