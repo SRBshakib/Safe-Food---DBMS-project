@@ -254,6 +254,67 @@
     background-color: #fff;
     /* padding: 25px 35px 25px 30px; */
 }
+
+.card {
+  border-radius: 1.5rem;
+  border: unset;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
   
+}
 
+.card-header.card-no-border {
+  border-bottom: none !important;}
 
+  .card-header {
+    background-color: var(--white);
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+}
+.p-0 {
+  padding: 0 !important;
+}
+.default-dashboard .welcome-banner .welcome-card {
+  background-color: var(--theme-default);
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.default-dashboard .welcome-banner .welcome-card .img-1 {
+  right: 4px;
+  animation: up-down 4s infinite;
+}
+.w-100 {
+  width: 100% !important;
+}
+.default-dashboard .welcome-banner .welcome-card .img-2 {
+  top: 0;
+  animation: myOrbit 9s linear infinite;
+}
+.default-dashboard .welcome-banner .welcome-card .img-3 {
+  animation: up-down 4s infinite;
+}
+.default-dashboard .welcome-banner .welcome-card .img-4 {
+  bottom: -25px;
+  left: 27%;
+  animation: 8s linear 0s infinite normal none running move1;
+}
+.default-dashboard .welcome-banner .welcome-card .img-5 {
+  right: 169px;
+  top: -14px;
+  animation: myOrbit 9s linear infinite;
+}
+.default-dashboard .welcome-banner .welcome-card {
+  background-color: #308e87;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}

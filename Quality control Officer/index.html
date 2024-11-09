@@ -136,16 +136,31 @@
           <i class='bx bx-menu' ></i>
           <span class="text">Quality Control Officer Dashboard</span>
         </div>
-       <div class="container">
-        <div class="row justify-content-around" >
-            <div class="box col-lg-5"  id="chart"></div>
+       <div class="container-fluid default-dashboard">
+        <div class="row " >
+            <div class="col-xl-4 proorder-xxl-1 col-sm-6 box-col-6">
+              <div class="card welcome-banner">
+                <div class="card-header p-0 card-no-border">
+                  <div class="welcome-card">
+                    <img class="w-100 img-fluid" src="images/welcome-bg.png" alt="">
+                    <img class="position-absolute img-1 img-fluid" src="images/img-1.png" alt="">
+                    <img class="position-absolute img-2 img-fluid" src="images/img-2.png" alt="">
+                    <img class="position-absolute img-3 img-fluid" src="images/img-3.png" alt="">
+                    <img class="position-absolute img-4 img-fluid" src="images/img-4.png" alt="">
+                    <img class="position-absolute img-5 img-fluid" src="images/img-5.png" alt="">
 
-            <div class="box col-lg-5"  id="type_chart"></div>
+                  </div>
+                  
+                </div>
+
+              </div>
+
+            </div>
 
         </div>
        </div>
       </section>
-      <script>
+      <!-- <script>
             //high low chart //
         var options = {
           series: [
@@ -222,7 +237,7 @@
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
       </script>
-      <script>
+      <script> -->
         //types chart//
         var options = {
           series: [44, 55, 41, 17, 15],
