@@ -254,6 +254,224 @@
     background-color: #fff;
     /* padding: 25px 35px 25px 30px; */
 }
+
+.card {
+  border-radius: 1.5rem;
+  border: unset;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
   
+}
+
+.card-header.card-no-border {
+  border-bottom: none !important;}
+
+  .card-header {
+    background-color: var(--white);
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+}
+.p-0 {
+  padding: 0 !important;
+}
+
+.default-dashboard .welcome-banner .welcome-card .img-1 {
+  right: 4px;
+  animation: upDown 4s ease-in-out infinite;
+}
+.w-100 {
+  width: 100% !important;
+}
+.default-dashboard .welcome-banner .welcome-card .img-2 {
+  top: 0;
+  animation: upDown 4s ease-in-out infinite;
+}
+.default-dashboard .welcome-banner .welcome-card .img-3 {
+  animation: upDown 4s ease-in-out infinite;
+}
+.default-dashboard .welcome-banner .welcome-card .img-4 {
+  bottom: -25px;
+  left: 27%;
+  animation: upDown 6s ease-in-out infinite alternate;
+}
+.default-dashboard .welcome-banner .welcome-card .img-5 {
+  right: 169px;
+  top: -14px;
+  animation: orbit 8s linear infinite;
+}
+.default-dashboard .welcome-banner .welcome-card {
+  background-color: #308e87;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+@keyframes slideIn {
+  0% {
+      transform: translateY(-100%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes upDown {
+  0%, 100% {
+      transform: translateY(-10px);
+  }
+  50% {
+      transform: translateY(10px);
+  }
+}
+
+@keyframes orbit {
+  0% {
+      transform: rotate(0deg) translateX(20px) rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg) translateX(20px) rotate(-360deg);
+  }
+}
 
 
+.card-body {
+  padding: 20px;
+  background-color: transparent;
+}
+
+.default-dashboard .welcome-banner h1 img, .default-dashboard .welcome-banner .h1 img {
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+}
+
+.btn-pill {
+  border-radius: 60px;
+}
+
+.btn-primary {
+  background-color: #308e87 !important;
+  border: 1px solid #308e87;
+  color: #ffffff;
+}
+
+.real-time-clock {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+
+/* Card Styling for Summary Cards */
+.styled-card {
+  background-color:#ffffff ;
+  color: #308e87;
+  border-radius: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  padding-top: 20px;
+  min-height: 350px;
+}
+
+/* Similar Design Elements to Welcome Card */
+.styled-card .card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000706;
+  margin-top: 100px;
+}
+
+.styled-card .display-4 {
+  font-size: 3rem;
+  font-weight: bold;
+  
+}
+
+.styled-card .card-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* Decorative Images */
+.styled-card img.position-absolute {
+  opacity: 0.2;
+  z-index: 0;
+  width: 80px;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+.rounded-table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-header {
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.inspection-list, .batch-location {
+  margin-top: 20px;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0 10px; /* Adds space between rows */
+}
+
+.table thead th {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.table tbody tr {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table tbody tr td {
+  vertical-align: middle;
+  padding: 12px 10px;
+  border-top: none;
+}
+
+.table tbody tr td:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.table tbody tr td:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.badge {
+  font-size: 0.85em;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.bg-success {
+  background-color: #d4edda;
+  color: #28a745;
+}
+
+.bg-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
