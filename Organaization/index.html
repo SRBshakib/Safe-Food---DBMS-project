@@ -29,12 +29,12 @@
           </li>
 
           <li>
-            <a href="#">
+            <a href="trace_index.html">
               <i class='bx bx-pie-chart-alt-2' ></i>
-              <span class="link_name">Analytics</span>
+              <span class="link_name">Trace Product</span>
             </a>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Analytics</a></li>
+              <li><a class="link_name" href="#"></a></li>
             </ul>
           </li>
           <li>
@@ -47,12 +47,12 @@
             </ul>
           </li>
           <li>
-            <a href="#">
+            <a href="order_index.html">
               <i class='bx bx-history'></i>
-              <span class="link_name">History</span>
+              <span class="link_name">Orders</span>
             </a>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">History</a></li>
+              <li><a class="link_name" href="#"></a></li>
             </ul>
           </li>
           <li>
@@ -61,7 +61,7 @@
               <span class="link_name">Settings</span>
             </a>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Setting</a></li>
+              <li><a class="link_name" href="#"></a></li>
             </ul>
           </li>
           <li>
@@ -127,88 +127,153 @@
                 <!-- Summary Cards with Styled Background -->
                 <div class="col-xl-4 col-md-6 box-col-6">
                     <div class="card inspection-card styled-card shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title" style="margin-top: 10px !important;" >Total Processed Today</h5>
-                            <p class="display-4">25</p>
+                        <div class="card-body text-center"id="safety_chart">
+                          <h2>Purity and Safety</h2>
+                            
                         </div>
-                        <div class="card-body text-center">
-                          <h5 class="card-title" style="margin-top: -45px !important; " >Shifted to Warehouse today</h5>
-                          <p class="display-4">5</p>
-                      </div>
+                        
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6 box-col-6">
                     <div class="card inspection-card styled-card shadow-sm">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Total Sale This Month</h5>
-                            <p class="display-4">150</p>
+                        <div class="card-body text-center"id="top_sale">
+                            <h2>Top Sales</h2>
+                          
+
+                        </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
             <div >
               <div class="row">
-                  <!-- First Card: Upcoming Inspection List -->
-                  <div class="col-xl-8 col-lg-7 col-md-12 mb-4">
-                      <div class="card shadow-sm rounded-table">
-                          <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                              <h5 class="mb-0">Upcoming Inspection List</h5>
-                              <button class="btn btn-sm btn-primary" onclick="updateUpcomingList()">Update</button>
-                          </div>
-                          <div class="card-body">
-                              <div class="table-responsive">
-                                  <table class="table table-borderless align-middle">
-                                      <thead>
-                                          <tr>
-                                              <th><input type="checkbox"></th>
-                                              <th>Inspection ID</th>
-                                              <th>Batch ID</th>
-                                              <th>Where</th>
-                                              <th>Product Name</th>
-                                              <th>Status</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody id="upcomingListBody">
-                                          <!-- Sample Rows (Limited to 5 initially) -->
-                                      </tbody>
-                                  </table>
-                              </div>
-                              <button class="btn btn-primary" onclick="loadMoreUpcoming()">Load More</button>
-                          </div>
-                      </div>
-                  </div>
-          
-                  <!-- Second Card: Batch Location Record -->
-                  <div class="col-xl-4 col-lg-5 col-md-12">
-                      <div class="card shadow-sm rounded-table">
-                          <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                              <h5 class="mb-0">Batch Location Record</h5>
-                              <button class="btn btn-sm btn-primary" onclick="updateBatchLocation()">Update</button>
-                          </div>
-                          <div class="card-body">
-                              <div class="table-responsive">
-                                  <table class="table table-borderless align-middle">
-                                      <thead>
-                                          <tr>
-                                              <th>Batch ID</th>
-                                              <th>Where It Is</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody id="batchLocationBody">
-                                          <!-- Sample Rows (Limited to 5 initially) -->
-                                      </tbody>
-                                  </table>
-                              </div>
-                              <button class="btn btn-primary" onclick="loadMoreBatchLocation()">Load More</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                 <!-- Top Farmer Table -->
+<div class="col-xl-4 col-md-6 box-col-6">
+  <div class="card shadow-sm styled-card">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center">
+          <h4 class="mb-0">Top Farmers</h4>
+      </div>
+      <div class="card-body p-0">
+          <div class="table-responsive">
+              <table class="table table-borderless table-striped">
+                  <thead class="bg-light">
+                      <tr>
+                          <th>Farmer ID</th>
+                          <th>Name</th>
+                          <th>Location</th>
+                          <th>Product (Grow)</th>
+                          <th>Production</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Sample data, replace with dynamic content -->
+                      <tr>
+                          <td>F123</td>
+                          <td>Abul Mia</td>
+                          <td>Rajshahi</td>
+                          <td>Mango</td>
+                          <td>1,200 kg</td>
+                      </tr>
+                      <tr>
+                          <td>F456</td>
+                          <td>Badsha Chowdhury</td>
+                          <td>Barishal</td>
+                          <td>Coconut Water</td>
+                          <td>950 kg</td>
+                      </tr>
+                  </tbody>
+              </table>
           </div>
-          
-          
-          
-          
+      </div>
+  </div>
+</div>
+
+<!-- Top Retailer Table -->
+<div class="col-xl-4 col-md-6 box-col-6">
+  <div class="card shadow-sm styled-card">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Top Retailers</h5>
+      </div>
+      <div class="card-body p-0">
+          <div class="table-responsive">
+              <table class="table table-borderless table-striped">
+                  <thead class="bg-light">
+                      <tr>
+                          <th>Retailer ID</th>
+                          <th>Name</th>
+                          <th>Location</th>
+                          <th>Products Sold</th>
+                          <th>Order</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Sample data, replace with dynamic content -->
+                      <tr>
+                          <td>R789</td>
+                          <td>Apon Mart</td>
+                          <td>Bashundhara</td>
+                          <td>Fruits</td>
+                          <td>450</td>
+                      </tr>
+                      <tr>
+                          <td>R234</td>
+                          <td>Shorshe Ilish</td>
+                          <td>IUB Canteen</td>
+                          <td>Food</td>
+                          <td>45</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Top Warehouse Table -->
+<div class="col-xl-4 col-md-6 box-col-6">
+  <div class="card shadow-sm styled-card">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Top Warehouses</h5>
+      </div>
+      <div class="card-body p-0">
+          <div class="table-responsive">
+              <table class="table table-borderless table-striped">
+                  <thead class="bg-light">
+                      <tr>
+                          <th>Warehouse ID</th>
+                          <th>Manager Name</th>
+                          <th>Manager ID</th>
+                          <th>Contact No.</th>
+                          <th>Location</th>
+                          <th>Capacity</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Sample data, replace with dynamic content -->
+                      <tr>
+                          <td>W001</td>
+                          <td>Dip Kundu</td>
+                          <td>M123</td>
+                          <td>+8801749822422</td>
+                          <td>Bashundhara</td>
+                          <td>5,000 tons</td>
+                      </tr>
+                      <tr>
+                          <td>W002</td>
+                          <td>Shakibur Rahman</td>
+                          <td>M456</td>
+                          <td>+1 987-654-321</td>
+                          <td>Dinajpur</td>
+                          <td>4,500 tons</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
+
           
           
           
@@ -216,7 +281,125 @@
           
         </div>
     </section>
+    <script>
+      var options = {
+        series: [75],
+        chart: {
+        height: 300,
+        type: 'radialBar',
+        toolbar: {
+          show: true
+        }
+      },
+      plotOptions: {
+        radialBar: {
+          startAngle: -135,
+          endAngle: 225,
+           hollow: {
+            margin: 0,
+            size: '70%',
+            background: '#fff',
+            image: undefined,
+            imageOffsetX: 0,
+            imageOffsetY: 0,
+            position: 'front',
+            dropShadow: {
+              enabled: true,
+              top: 3,
+              left: 0,
+              blur: 4,
+              opacity: 0.24
+            }
+          },
+          track: {
+            background: '#fff',
+            strokeWidth: '67%',
+            margin: 0, // margin is in pixels
+            dropShadow: {
+              enabled: true,
+              top: -3,
+              left: 0,
+              blur: 4,
+              opacity: 0.35
+            }
+          },
+      
+          dataLabels: {
+            show: true,
+            name: {
+              offsetY: -10,
+              show: true,
+              color: '#888',
+              fontSize: '17px'
+            },
+            value: {
+              formatter: function(val) {
+                return parseInt(val);
+              },
+              color: '#111',
+              fontSize: '36px',
+              show: true,
+            }
+          }
+        }
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shade: 'dark',
+          type: 'horizontal',
+          shadeIntensity: 0.5,
+          gradientToColors: ['#ABE5A1'],
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 100]
+        }
+      },
+      stroke: {
+        lineCap: 'round'
+      },
+      labels: ['Percent'],
+      };
+
+      var chart = new ApexCharts(document.querySelector("#safety_chart"), options);
+      chart.render();
     
+    </script>
+
+    <script>
+      var options = {
+        series: [14, 15, 16],
+        chart: {
+          height: 300,
+        type: 'polarArea',
+      },
+      labels: ['Corps', 'Fruits', 'Vegetables'],
+      stroke: {
+        colors: ['#fff']
+        
+      },
+      fill: {
+        opacity: 0.8
+      },
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }]
+      };
+
+      var chart = new ApexCharts(document.querySelector("#top_sale"), options);
+      chart.render();
+    </script>
+    
+
     <script>
       // Sample Data for Upcoming Inspection List
 let upcomingListData = [
