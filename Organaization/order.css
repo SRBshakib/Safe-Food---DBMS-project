@@ -549,3 +549,108 @@
   margin: 4px 0;
   color: #333;
 }
+
+
+.traceability-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.trace-steps {
+    display: flex;
+    flex-direction: column;
+}
+
+.trace-step {
+    background: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.trace-step h3 {
+    color: #308e87;
+    margin-bottom: 8px;
+}
+
+.trace-step p {
+    margin: 4px 0;
+    color: #333;
+}
+
+
+
+
+/* Table Container Styling */
+.table-container {
+    max-width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Headings Styling */
+.table-container h2 {
+    margin-top: 20px;
+    color: #308e87;
+    font-weight: bold;
+}
+
+/* Table Styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Table Headers Styling */
+.table thead {
+    background-color: #f1f1f1;
+    color: #308e87;
+}
+
+.table th {
+    padding: 12px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+/* Table Cells Styling */
+.table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    color: #333;
+    vertical-align: middle;
+}
+
+/* Hover Effect on Rows */
+.table tbody tr:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Alternating Row Colors for Readability */
+.table tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+/* Paid Status Column - Specific Styling */
+.table tbody tr td:last-child {
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table th, .table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .table-container h2 {
+        font-size: 1.5rem;
+    }
+}
