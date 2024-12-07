@@ -217,7 +217,6 @@
   .home-section{
     position: relative;
     background: #E4E9F7;
-    height: 100vh;
     left: 260px;
     width: calc(100% - 260px);
     transition: all 0.5s ease;
@@ -305,40 +304,12 @@
   background-color: #308e87;
   border-radius: 24px 24px 0 0;
   overflow: hidden;
-  height: 180px;
+  height: 230px;
   display: flex;
   align-items: center;
   position: relative;
 }
 
-@keyframes slideIn {
-  0% {
-      transform: translateY(-100%);
-      opacity: 0;
-  }
-  100% {
-      transform: translateY(0);
-      opacity: 1;
-  }
-}
-
-@keyframes upDown {
-  0%, 100% {
-      transform: translateY(-10px);
-  }
-  50% {
-      transform: translateY(10px);
-  }
-}
-
-@keyframes orbit {
-  0% {
-      transform: rotate(0deg) translateX(20px) rotate(0deg);
-  }
-  100% {
-      transform: rotate(360deg) translateX(20px) rotate(-360deg);
-  }
-}
 
 
 .card-body {
@@ -374,123 +345,107 @@
 
 
 /* Card Styling for Summary Cards */
-.styled-card {
-  background-color:#ffffff ;
-  color: #308e87;
-  border-radius: 1.5rem;
-  position: relative;
-  overflow: hidden;
-  padding-top: 20px;
-  min-height: 350px;
+body {
+    background-color: #f8f9fa;
 }
 
-/* Similar Design Elements to Welcome Card */
-.styled-card .card-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #000706;
-  /* margin-top: 100px; */
+table {
+    background-color: #fff;
+    margin-top: 20px;
 }
 
-.styled-card .display-4 {
-  font-size: 3rem;
-  font-weight: bold;
-  
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.styled-card .card-body {
-  position: relative;
-  z-index: 1;
+td, th {
+    text-align: center;
+    vertical-align: middle;
 }
 
-/* Decorative Images */
-.styled-card img.position-absolute {
-  opacity: 0.2;
-  z-index: 0;
-  width: 80px;
+form {
+    margin-bottom: 10px;
 }
 
-.table th, .table td {
-  vertical-align: middle;
+select.form-control {
+    width: 150px;
+    margin-top: 10px;
 }
-.rounded-table {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
   border-radius: 10px;
-  overflow: hidden;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.card-header {
-  border-bottom: 1px solid #e0e0e0;
-  font-weight: 500;
-  font-size: 1.1em;
+h1, h2 {
+  text-align: center;
+  color: #333;
 }
 
-.inspection-list, .batch-location {
+.delivery-table {
+  width: 100%;
+  border-collapse: collapse;
   margin-top: 20px;
 }
 
-.table {
-  border-collapse: separate;
-  border-spacing: 0 10px; /* Adds space between rows */
+.delivery-table th,
+.delivery-table td {
+  border: 2px solid #ddd;
+  padding: 12px;
+  text-align: center;
 }
 
-.table thead th {
-  color: #6c757d;
-  font-weight: 500;
+.delivery-table th {
+  background-color: #c4fca4;
 }
 
-.table tbody tr {
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+button {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-.table tbody tr td {
-  vertical-align: middle;
-  padding: 12px 10px;
-  border-top: none;
+button:hover {
+  background-color: #45a049;
 }
 
-.table tbody tr td:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+.dropoff-btn {
+  background-color: #f39c12;
 }
 
-.table tbody tr td:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+.dropoff-btn:hover {
+  background-color: #e67e22;
 }
 
-.badge {
-  font-size: 0.85em;
-  padding: 5px 10px;
-  border-radius: 15px;
+@media (max-width: 600px) {
+  .delivery-table th, .delivery-table td {
+      font-size: 12px;
+      padding: 8px;
+  }
+
+  button {
+      font-size: 12px;
+      padding: 6px 12px;
+  }
 }
-
-.bg-success {
-  background-color: #d4edda;
-  color: #28a745;
-}
-
-.bg-warning {
-  background-color: #fff3cd;
-  color: #856404;
-}
-
-
-.styled-card_height {
-    height: 350px; /* Adjust this value as needed */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-/* Ensure the chart container doesn't overflow */
-#capacityChart {
-    max-height: 180px; /* Restrict chart container height */
-    overflow: hidden;
-}
-
-
-/*For the Product Entry */
-
