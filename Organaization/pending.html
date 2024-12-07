@@ -6,7 +6,7 @@
     <title>Safe Food and Trace System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="personInOrgStyle.css"> <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="pending.css"> <!-- Link to custom CSS -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     
@@ -97,54 +97,117 @@
             <div class="row">
 
                 <!-- Welcome Banner Card -->
-                <body>
-                    <div class="container my-5">
-                        <h2 class="text-center mb-4">Organization Activity Details</h2>
+
+
+
+
+                <h2>Pending Requests</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Requestor Name</th>
+                            <th>Request Type</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Abul Bashar</td>
+                            <td>Farmer</td>
+                            <td id="status-1">Pending</td>
+                            <td>
+                                <button class="view-btn" onclick="viewRequest(1)">View Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jannatul Mahia</td>
+                            <td>Warehouse Manager</td>
+                            <td id="status-2">Pending</td>
+                            <td>
+                                <button class="view-btn" onclick="viewRequest(2)">View Details</button>
+                            </td>
+                        </tr>
+                        <!-- Add more requests as needed -->
+                    </tbody>
+                </table>
                 
-                        <!-- Dropdown Menu -->
-                        <div class="mb-4">
-                            <label for="employeeType" class="form-label"><strong>Select Employee Type:</strong></label>
-                            <select id="employeeType" class="form-select">
-                                <option value="Farmer">Farmer</option>
-                                <option value="WarehouseManager">Warehouse Manager</option>
-                                <option value="Warehouse">Warehouse</option>
-                                <option value="Retailer">Retailer</option>
-                                <option value="TransportDriver">Transport Driver</option>
-                                <option value="ProcessingUnit">Processing Unit</option>
-                            </select>
-                        </div>
-                
-                        <!-- Table for Employee Details -->
-                        <div id="employeeDetails" class="table-responsive">
-                            <!-- Content will be dynamically updated here -->
+                <!-- Modal for viewing full request details -->
+                <div id="requestModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeModal()">&times;</span>
+                        <h3>Request Details</h3>
+                        <div id="requestDetails"></div>
+                        <div class="modal-actions">
+                            <button id="acceptBtn" class="accept-btn" onclick="changeStatus('Accepted')">Accept</button>
+                            <button id="denyBtn" class="reject-btn" onclick="changeStatus('Denied')">Deny</button>
                         </div>
                     </div>
+                </div>
                 
-                    <script>
-                        // Employee Data
-                        const employeeData = {
-                            Farmer: [
-                                { id: "F001", name: "Abdul Rahman", contact: "+88 01749552244", address: "Patuakhali", product: "Rice" },
-                                { id: "F002", name: "Atif Aslam", contact: "+88 01985426548", address: "Purbachal", product: "Milk" },
-                            ],
-                            WarehouseManager: [
-                                { id: "WM001", name: "SpiderMan", contact: "+88 01785262445", address: "City Warehouse", managed: "W001" },
-                            ],
-                            Warehouse: [
-                                { id: "W001", name: "Central Warehouse", contact: "N/A", address: "Downtown", capacity: "1000 Tons",manager: "WM001" },
-                            ],
-                            Retailer: [
-                                { id: "R001", name: "Swapno", contact: "+88 01748522848", address: "Bashundhara", shopType: "Super Shop" },
-                            ],
-                            TransportDriver: [
-                                { id: "TD001", name: "Vin Desel", contact: "+88 01625842475", address: "Route 5, City", vehicle: "Truck" },
-                            ],
-                            ProcessingUnit: [
-                                { id: "PU001",contact: "+88 01789546321", address: "Processing Plant A", capacity: "500 Tons/Day" },
-                            ],
+                <script>
+                    let currentRequestId = null;
+                
+                    function viewRequest(requestId) {
+                        // Here you can fetch the request details dynamically, but for now, it's hardcoded
+                        const requestData = {
+                            1: {
+                                id: 1,
+                                requestor: "Abul Bashar",
+                                type: "Farmer",
+                                status: "Pending",
+                                description: "This is a request for enter as farmer.",
+                                date: "2024-12-01"
+                            },
+                            2: {
+                                id: 2,
+                                requestor: "Jannatul Mahia",
+                                type: "Warehouse Manager",
+                                status: "Pending",
+                                description: "This is a request for accessing Warehouse as a manager.",
+                                date: "2024-12-02"
+                            }
                         };
                 
+                        // Get the details for the request and display it in the modal
+                        const request = requestData[requestId];
+                        const requestDetails = `
+                            <p><strong>Request ID:</strong> ${request.id}</p>
+                            <p><strong>Requestor Name:</strong> ${request.requestor}</p>
+                            <p><strong>Request Type:</strong> ${request.type}</p>
+                            <p><strong>Status:</strong> ${request.status}</p>
+                            <p><strong>Description:</strong> ${request.description}</p>
+                            <p><strong>Date:</strong> ${request.date}</p>
+                        `;
+                        document.getElementById("requestDetails").innerHTML = requestDetails;
+                
+                        // Store the current request ID
+                        currentRequestId = requestId;
+                
+                        // Open the modal
+                        document.getElementById("requestModal").style.display = "block";
+                    }
+                
+                    function changeStatus(newStatus) {
+                        // Update the status in the modal and in the table
+                        document.getElementById("status-" + currentRequestId).innerText = newStatus;
+                        
+                        // Close the modal
+                        closeModal();
+                    }
+                
+                    function closeModal() {
+                        // Close the modal
+                        document.getElementById("requestModal").style.display = "none";
+                    }
+                </script>
+
                         // Function to render table
+                    <script>
                         function renderTable(type) {
                             const tableContainer = document.getElementById("employeeDetails");
                             const employees = employeeData[type];
@@ -183,11 +246,8 @@
                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
                 </body>
                 
-     
-  
 
-      <script>
- let sidebar = document.querySelector(".sidebar");
+      <script>let sidebar = document.querySelector(".sidebar");
 let sidebarBtn = document.querySelector(".bx-menu");
 let menuItems = document.querySelectorAll(".nav-links li");
 
@@ -209,12 +269,6 @@ sidebar.addEventListener("mouseout", () => {
 });
 
 
-
       </script>
-
- 
 </body>
-
-
-    
 </html>
