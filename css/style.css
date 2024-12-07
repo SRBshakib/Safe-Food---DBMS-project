@@ -514,4 +514,7 @@ a:hover {
     font-weight: bold;
     color: #308e87; /* Counter text in blue */
 }
+.btn-bg{
+    background-color: #308e87 !important;
+}
 
