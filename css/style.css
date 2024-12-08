@@ -1,7 +1,7 @@
 body {
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: #fff;
-    height: 200vh;
+    /* height: 200vh; */
     position: relative;
 }
 
@@ -485,5 +485,36 @@ a:hover {
     font-weight: 600;
     letter-spacing: 0.2px;
     font-size: 60px;
+}
+
+.card {
+    border: none; /* Remove default card border */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.card-title {
+    font-size: 1.8rem; /* Larger title */
+    font-weight: 700; /* Bold title */
+}
+
+.card-text {
+    font-size: 1.1rem; /* Slightly larger description text */
+    text-align: center;
+}
+
+.counter-box {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #308e87; /* Highlight color for the counter */
+}
+
+.counter {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #308e87; /* Counter text in blue */
+}
+.btn-bg{
+    background-color: #308e87 !important;
 }
 

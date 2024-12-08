@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS for hiding/showing sections -->
+    <style>
+        .dynamic-fields {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg border-light rounded">
+                    <div class="card-body">
+                        <h3 class="card-title text-center mb-3" style="font-family: 'Open Sans', sans-serif; color: #3a3a3a;">Sign Up</h3>
+                        <form action="signup_process.php" method="POST" id="signupForm">
+                            <!-- Select Service -->
+                            <div class="form-group">
+                                <label for="service" style="font-family: 'Open Sans', sans-serif; color: #555;">Select Service</label>
+                                <select class="form-control" id="service" name="service" required>
+                                    <option value="" disabled selected>Select your service</option>
+                                    <option value="farmer">Farmer</option>
+                                    <option value="retailer">Retailer</option>
+                                    <option value="quality-control-officer">Quality Control Officer</option>
+                                    <option value="driver">Driver</option>
+                                    <option value="warehouse-manager">Warehouse Manager</option>
+                                </select>
+                            </div>
+
+                            <!-- Common Fields for all Users (except Warehouse Manager) -->
+                            <div id="userFields" class="dynamic-fields">
+                                <!-- First Name -->
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" class="form-control" id="first-name" name="first-name" placeholder="Enter your first name" required>
+                                </div>
+
+                                <!-- Last Name -->
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Enter your last name" required>
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select class="form-control" id="gender" name="gender" required>
+                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <!-- Sub District -->
+                                <div class="form-group">
+                                    <label for="sub-district">Sub District</label>
+                                    <input type="text" class="form-control" id="sub-district" name="sub-district" placeholder="Enter your sub district" required>
+                                </div>
+
+                                <!-- District -->
+                                <div class="form-group">
+                                    <label for="district">District</label>
+                                    <input type="text" class="form-control" id="district" name="district" placeholder="Enter your district" required>
+                                </div>
+
+                                <!-- Division -->
+                                <div class="form-group">
+                                    <label for="division">Division</label>
+                                    <input type="text" class="form-control" id="division" name="division" placeholder="Enter your division" required>
+                                </div>
+
+                                <!-- Contact No -->
+                                <div class="form-group">
+                                    <label for="contact-no">Contact No</label>
+                                    <input type="tel" class="form-control" id="contact-no" name="contact-no" placeholder="Enter your contact number" required>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                                </div>
+
+                                <!-- Password -->
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                                </div>
+                            </div>
+
+                            <!-- Warehouse Manager Fields (only for Warehouse Manager) -->
+                            <div id="warehouseManagerFields" class="dynamic-fields">
+                                <h5>Warehouse Information</h5>
+
+                                <!-- Warehouse Name -->
+                                <div class="form-group">
+                                    <label for="warehouse-name">Warehouse Name</label>
+                                    <input type="text" class="form-control" id="warehouse-name" name="warehouse-name" placeholder="Enter your warehouse name" required>
+                                </div>
+
+                                <!-- Warehouse District -->
+                                <div class="form-group">
+                                    <label for="warehouse-district">District</label>
+                                    <input type="text" class="form-control" id="warehouse-district" name="warehouse-district" placeholder="Enter warehouse district" required>
+                                </div>
+
+                                <!-- Warehouse Division -->
+                                <div class="form-group">
+                                    <label for="warehouse-division">Division</label>
+                                    <input type="text" class="form-control" id="warehouse-division" name="warehouse-division" placeholder="Enter warehouse division" required>
+                                </div>
+
+                                <!-- Maximum Capacity -->
+                                <div class="form-group">
+                                    <label for="max-capacity">Maximum Capacity</label>
+                                    <input type="number" class="form-control" id="max-capacity" name="max-capacity" placeholder="Enter maximum warehouse capacity" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for dynamic form fields -->
+    <script>
+        document.getElementById('service').addEventListener('change', function() {
+            // Hide both sections initially
+            document.getElementById('userFields').style.display = 'none';
+            document.getElementById('warehouseManagerFields').style.display = 'none';
+            
+            var selectedService = this.value;
+            if (selectedService === 'warehouse-manager') {
+                document.getElementById('userFields').style.display = 'block';
+                document.getElementById('warehouseManagerFields').style.display = 'block';
+            } else {
+                document.getElementById('userFields').style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
