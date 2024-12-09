@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Food and Trace System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="personInOrgStyle.css"> <!-- Link to custom CSS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+</head>
+<body>
+    <div class="sidebar close">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">Safe Food</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">
+              <i class='bx bx-grid-alt' ></i>
+              <span class="link_name">Dashboard</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Category</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="trace_index.html">
+              <i class='bx bx-pie-chart-alt-2' ></i>
+              <span class="link_name">Trace Product</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#"></a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="personInOrg.html">
+              <i class='bx bx-line-chart' ></i>
+              <span class="link_name">My Organization</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Chart</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="order_index.html">
+              <i class='bx bx-history'></i>
+              <span class="link_name">Orders</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#"></a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="warehouseManagement.html">
+              <i class='bx bx-cog' ></i>
+              <span class="link_name">Manage Warehouse</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#"></a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="pending.html">
+              <i class='bx bx-support' ></i>
+              <span class="link_name">Pending User</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Help and Support</a></li>
+            </ul>
+          </li>
+          
+          <li>
+        <div class="profile-details">
+          <div class="profile-content">
+            <!--<img src="image/profile.jpg" alt="profileImg">-->
+          </div>
+          <div class="name-job">
+            <div class="profile_name">Mr. Admin</div>
+            <div class="job">Administrator</div>
+          </div>
+          <i class='bx bx-log-out' ></i>
+        </div>
+      </li>
+    </ul>
+      </div>
+      <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu'></i>
+            <span class="text">Admin Dashboard</span>
+        </div>
+        <div class="container-fluid default-dashboard">
+            <div class="row">
+
+                <!-- Welcome Banner Card -->
+                <body>
+                    <div class="container my-5">
+                        <h2 class="text-center mb-4">Organization Activity Details</h2>
+                
+                        <!-- Dropdown Menu -->
+                        <div class="mb-4">
+                            <label for="employeeType" class="form-label"><strong>Select Employee Type:</strong></label>
+                            <select id="employeeType" class="form-select">
+                                <option value="Farmer">Farmer</option>
+                                <option value="WarehouseManager">Warehouse Manager</option>
+                                <option value="Warehouse">Warehouse</option>
+                                <option value="Retailer">Retailer</option>
+                                <option value="TransportDriver">Transport Driver</option>
+                                <option value="ProcessingUnit">Processing Unit</option>
+                            </select>
+                        </div>
+                
+                        <!-- Table for Employee Details -->
+                        <div id="employeeDetails" class="table-responsive">
+                            <!-- Content will be dynamically updated here -->
+                        </div>
+                    </div>
+                
+                    <script>
+                        // Employee Data
+                        const employeeData = {
+                            Farmer: [
+                                { id: "F001", name: "Abdul Rahman", contact: "+88 01749552244", address: "Patuakhali", product: "Rice" },
+                                { id: "F002", name: "Atif Aslam", contact: "+88 01985426548", address: "Purbachal", product: "Milk" },
+                            ],
+                            WarehouseManager: [
+                                { id: "WM001", name: "SpiderMan", contact: "+88 01785262445", address: "City Warehouse", managed: "W001" },
+                            ],
+                            Warehouse: [
+                                { id: "W001", name: "Central Warehouse", contact: "N/A", address: "Downtown", capacity: "1000 Tons",manager: "WM001" },
+                            ],
+                            Retailer: [
+                                { id: "R001", name: "Swapno", contact: "+88 01748522848", address: "Bashundhara", shopType: "Super Shop" },
+                            ],
+                            TransportDriver: [
+                                { id: "TD001", name: "Vin Desel", contact: "+88 01625842475", address: "Route 5, City", vehicle: "Truck" },
+                            ],
+                            ProcessingUnit: [
+                                { id: "PU001",contact: "+88 01789546321", address: "Processing Plant A", capacity: "500 Tons/Day" },
+                            ],
+                        };
+                
+                        // Function to render table
+                        function renderTable(type) {
+                            const tableContainer = document.getElementById("employeeDetails");
+                            const employees = employeeData[type];
+                            
+                            if (!employees || employees.length === 0) {
+                                tableContainer.innerHTML = "<p class='text-danger'>No data available for this category.</p>";
+                                return;
+                            }
+                
+                            // Generate table headers based on the keys of the first employee object
+                            const headers = Object.keys(employees[0]);
+                            let tableHTML = `<table class="table table-striped table-hover align-middle">
+                                                <thead class="table-dark">
+                                                    <tr>${headers.map(header => `<th>${header.toUpperCase()}</th>`).join("")}</tr>
+                                                </thead>
+                                                <tbody>`;
+                            
+                            // Generate table rows
+                            employees.forEach(employee => {
+                                tableHTML += `<tr>${headers.map(header => `<td>${employee[header]}</td>`).join("")}</tr>`;
+                            });
+                
+                            tableHTML += "</tbody></table>";
+                            tableContainer.innerHTML = tableHTML;
+                        }
+                
+                        // Event listener for dropdown change
+                        document.getElementById("employeeType").addEventListener("change", (e) => {
+                            renderTable(e.target.value);
+                        });
+                
+                        // Initial render for "Farmer"
+                        renderTable("Farmer");
+                    </script>
+                
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                </body>
+                
+     
+  
+
+      <script>
+ let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+let menuItems = document.querySelectorAll(".nav-links li");
+
+// Open sidebar when mouse is over the menu button
+sidebarBtn.addEventListener("mouseover", () => {
+  sidebar.classList.remove("close");
+});
+
+// Open sidebar when hovering over any <li> item
+menuItems.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    sidebar.classList.remove("close");
+  });
+});
+
+// Close sidebar when mouse leaves the sidebar
+sidebar.addEventListener("mouseout", () => {
+  sidebar.classList.add("close");
+});
+
+
+
+      </script>
+
+ 
+</body>
+
+
+    
+</html>

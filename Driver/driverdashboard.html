@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+< lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Manager Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Link to custom CSS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+</head>
+<body>
+    <div class="sidebar close">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">TraceRoots</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">
+              <i class='bx bx-grid-alt' ></i>
+              <span class="link_name">Dashboard</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="productEntry.html">
+              <i class='bx bx-pie-chart-alt-2' ></i>
+              <span class="link_name">Entry Product</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Entry Product</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="inventory.html">
+              <i class='bx bx-line-chart' ></i>
+              <span class="link_name">Inventory</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Inventory</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-history'></i>
+              <span class="link_name">History</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">History</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-cog' ></i>
+              <span class="link_name">Setting</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Setting</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-support' ></i>
+              <span class="link_name">Help and Support</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Help and Support</a></li>
+            </ul>
+          </li>
+
+          <li>
+        <div class="profile-details">
+          <div class="profile-content">
+            <!--<img src="image/profile.jpg" alt="profileImg">-->
+          </div>
+          <div class="name-job">
+            <div class="profile_name">Kamal Hasan</div>
+            <div class="job">Warehouse Manager</div>
+          </div>
+          <i class='bx bx-log-out' ></i>
+        </div>
+      </li>
+    </ul>
+      </div>
+      <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu'></i>
+            <span class="text">Driver Dashboard</span>
+        </div>
+        <div class="container-fluid default-dashboard">
+            <div class="row">
+                <!-- Welcome Banner Card -->
+                <div class="col-xl-4 proorder-xxl-1 col-sm-6 box-col-6">
+                  <div class="card welcome-banner">
+                        <div class="card-header p-0 card-no-border">
+                            <div class="welcome-card">
+                                <img class="w-100 img-fluid" src="image/trucks1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="card-body" >
+                            <div class="d-flex align-center">
+                                <h1>
+                                    "Hello, Mr. Kamal"
+                                    <img src="image/delivary_emoji.jpeg" alt="">
+                                </h1>
+                            </div>
+                            <p>Welcome back! Let's start from where you left.</p>
+                            <div class="d-flex align-center justify-content-between">
+                                <a class="btn btn-pill btn-primary" href="driverdashboard.html">What's New</a>
+                                <div id="timer" class="real-time-timer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+
+
+                <body>
+                    <div class="container">
+                        <h1>Transport Delivery Dashboard</h1>
+                
+                        <!-- Upcoming Deliveries Section -->
+                        <h2>Upcoming Deliveries</h2>
+                        <table class="delivery-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Pickup Location</th>
+                                    <th>Destination</th>
+                                    <th>Product</th>
+                                    <th>Pickup Time</th>
+                                    <th>Status</th>
+                                    <th>Payment Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Location A</td>
+                                    <td>Location B</td>
+                                    <td>Electronics</td>
+                                    <td>2024-12-08 09:00 AM</td>
+                                    <td id="status-1">Pending</td>
+                                    <td id="payment-1">Unpaid</td>
+                                    <td>
+                                        <button class="pickup-btn" onclick="updateStatus(1, 'Pickup')">Pickup</button>
+                                        <button class="dropoff-btn" onclick="updateStatus(1, 'Dropoff')">Dropoff</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                
+                        <!-- Past Deliveries Section -->
+                        <h2>Past Deliveries</h2>
+                        <table class="delivery-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Pickup Location</th>
+                                    <th>Destination</th>
+                                    <th>Product</th>
+                                    <th>Pickup Time</th>
+                                    <th>Status</th>
+                                    <th>Payment Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Location C</td>
+                                    <td>Location D</td>
+                                    <td>Furniture</td>
+                                    <td>2024-12-05 10:00 AM</td>
+                                    <td>Completed</td>
+                                    <td>Paid</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Location E</td>
+                                    <td>Location F</td>
+                                    <td>Groceries</td>
+                                    <td>2024-12-06 02:00 PM</td>
+                                    <td>Completed</td>
+                                    <td>Paid</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <script>
+                        function updateStatus(id, action) {
+                            const statusCell = document.getElementById(`status-${id}`);
+                            const paymentCell = document.getElementById(`payment-${id}`);
+                            const dropdown = document.getElementById(`payment-dropdown-${id}`);
+                
+                            if (action === 'Pickup') {
+                                statusCell.innerText = 'Picked Up';
+                            } else if (action === 'Dropoff') {
+                                statusCell.innerText = 'Delivered';
+                                if (!dropdown) {
+                                    const paymentDropdown = document.createElement('select');
+                                    paymentDropdown.id = `payment-dropdown-${id}`;
+                                    paymentDropdown.innerHTML = `
+                                        <option value="unpaid">Pay Status</option>
+                                        <option value="Paid">Paid</option>
+                                        <option value="Unpaid">Unpaid</option>
+                                    `;
+                                    paymentCell.appendChild(paymentDropdown);
+                                    paymentDropdown.addEventListener('change', function () {
+                                        paymentCell.innerText = paymentDropdown.value;
+                                    });
+                                }
+                            }
+                        }
+                    </script>
+                </body>
+
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </div>
+       
+          <!-- Inventory Management Card -->
+          
+      
+    </section>
+    
+    <script>
+// Calculate the utilization percentage
+const totalCapacity = 1000;
+const currentUtilization = 760;
+const utilizationPercentage = (currentUtilization / totalCapacity) * 100;
+
+// Update HTML content for Total Capacity and Current Utilization
+document.getElementById("totalCapacity").textContent = totalCapacity;
+document.getElementById("currentUtilization").textContent = currentUtilization;
+
+// Configure the radial bar chart with adjusted height
+var options = {
+          series: [76],
+          chart: {
+          type: 'radialBar',
+          offsetY: -20,
+          sparkline: {
+            enabled: true
+          }
+        },
+        plotOptions: {
+          radialBar: {
+            startAngle: -90,
+            endAngle: 90,
+            track: {
+              background: "#e7e7e7",
+              strokeWidth: '97%',
+              margin: 5, // margin is in pixels
+              dropShadow: {
+                enabled: true,
+                top: 2,
+                left: 0,
+                color: '#999',
+                opacity: 1,
+                blur: 2
+              }
+            },
+            dataLabels: {
+              name: {
+                show: false
+              },
+              value: {
+                offsetY: -2,
+                fontSize: '22px'
+              }
+            }
+          }
+        },
+        grid: {
+          padding: {
+            top: -10
+          }
+        },
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shade: 'light',
+            shadeIntensity: 0.4,
+            inverseColors: false,
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 50, 53, 91]
+          },
+        },
+    labels: ['Utilization'],
+};
+
+// Render the chart
+var chart = new ApexCharts(document.querySelector("#capacityChart"), options);
+chart.render();
+
+      
+
+
+      // Line Chart for Storage Condition (Temperature & Humidity)
+      var optionsStorageCondition = {
+          chart: {
+              type: 'line',
+              height: 250
+          },
+          series: [
+              {
+                  name: 'Temperature',
+                  data: [24, 23, 22, 24, 26, 25, 23] // Sample temperature data points
+              },
+              {
+                  name: 'Humidity',
+                  data: [50, 55, 60, 57, 54, 52, 50] // Sample humidity data points
+              }
+          ],
+          xaxis: {
+              categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] // Days of the week
+          },
+          colors: ['#ff4560', '#008ffb'],
+          stroke: {
+              width: 3
+          }
+      };
+
+      var chartStorageCondition = new ApexCharts(document.querySelector("#storageConditionChart"), optionsStorageCondition);
+      chartStorageCondition.render();
+  </script>
+     
+  
+
+      <script>
+ let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+let menuItems = document.querySelectorAll(".nav-links li");
+
+// Open sidebar when mouse is over the menu button
+sidebarBtn.addEventListener("mouseover", () => {
+  sidebar.classList.remove("close");
+});
+
+// Open sidebar when hovering over any <li> item
+menuItems.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    sidebar.classList.remove("close");
+  });
+});
+
+// Close sidebar when mouse leaves the sidebar
+sidebar.addEventListener("mouseout", () => {
+  sidebar.classList.add("close");
+});
+
+
+
+      </script>
+ <script>
+  document.querySelector(".welcome-banner").addEventListener("mouseover", () => {
+    document.querySelector(".img-1").style.animationPlayState = "paused";
+});
+document.querySelector(".welcome-banner").addEventListener("mouseout", () => {
+    document.querySelector(".img-1").style.animationPlayState = "running";
+});
+
+ </script>
+ <script>
+  function updateTime() {
+    const timerElement = document.getElementById("timer");
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+
+    timerElement.textContent = `Time: ${hours}:${minutes}:${seconds} ${ampm}`;
+}
+
+// Update time every second
+setInterval(updateTime, 1000);
+
+// Initialize the time immediately on load
+updateTime();
+ </script>
+</body>
+
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</html>

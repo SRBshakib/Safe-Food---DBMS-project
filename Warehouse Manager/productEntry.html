@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Manager Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Link to custom CSS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+</head>
+<body>
+    <div class="sidebar close">
+        <div class="logo-details">
+          <i class='bx bxl-c-plus-plus'></i>
+          <span class="logo_name">TraceRoots</span>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="index.html">
+              <i class='bx bx-grid-alt' ></i>
+              <span class="link_name">Dashboard</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="productEntry.html">
+              <i class='bx bx-pie-chart-alt-2' ></i>
+              <span class="link_name">Entry Product</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Entry Product</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="inventory.html">
+              <i class='bx bx-line-chart' ></i>
+              <span class="link_name">Inventory</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Inventory</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-history'></i>
+              <span class="link_name">History</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">History</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-cog' ></i>
+              <span class="link_name">Setting</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Setting</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-support' ></i>
+              <span class="link_name">Help and Support</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Help and Support</a></li>
+            </ul>
+          </li>
+
+          <li>
+        <div class="profile-details">
+          <div class="profile-content">
+            <!--<img src="image/profile.jpg" alt="profileImg">-->
+          </div>
+          <div class="name-job">
+            <div class="profile_name">Kamal Hasan</div>
+            <div class="job">Warehouse Manager</div>
+          </div>
+          <i class='bx bx-log-out' ></i>
+        </div>
+      </li>
+    </ul>
+      </div>
+      <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu'></i>
+            <span class="text">Warehouse Manager Dashboard</span>
+        </div>
+        <div class="container-fluid default-dashboard">
+            <div class="row">
+                <!-- Welcome Banner Card -->
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Product Batch Selection</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            background-color: #f9f9f9;
+                            margin: 0;
+                            padding: 20px;
+                        }
+                        .container {
+                            width: 80%;
+                            margin: auto;
+                            padding: 20px;
+                            background-color: white;
+                            border-radius: 8px;
+                            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                        }
+                        h1 {
+                            text-align: center;
+                            color: #333;
+                        }
+                        select, button {
+                            padding: 10px;
+                            margin: 10px 0;
+                            font-size: 16px;
+                            width: 100%;
+                            max-width: 400px;
+                            border-radius: 5px;
+                            border: 1px solid #ccc;
+                        }
+                        .batch-list, .product-details {
+                            margin-top: 20px;
+                            display: none;
+                        }
+                        .batch-list ul, .product-details ul {
+                            list-style-type: none;
+                            padding: 0;
+                        }
+                        .batch-list li, .product-details li {
+                            background-color: #eaeaea;
+                            margin: 5px 0;
+                            padding: 10px;
+                            border-radius: 5px;
+                            cursor: pointer;
+                        }
+                        .batch-list li:hover, .product-details li:hover {
+                            background-color: #ccc;
+                        }
+                        .product-details {
+                            margin-top: 20px;
+                        }
+                        .product-details p {
+                            font-weight: bold;
+                        }
+                        .submit-btn {
+                            background-color: #4CAF50;
+                            color: white;
+                            border: none;
+                            padding: 12px;
+                            cursor: pointer;
+                            font-size: 18px;
+                            text-align: center;
+                        }
+                        .submit-btn:hover {
+                            background-color: #45a049;
+                        }
+                    </style>
+                </head>
+                <body>
+                
+                <div class="container">
+                    <h1>Product Batch Update</h1>
+                
+                    <label for="product-category">Select Product Category</label>
+                    <select id="product-category">
+                        <option value="">-- Select --</option>
+                        <option value="crop">Crops</option>
+                        <option value="fruits">Fruits</option>
+                        <option value="fish">Fish</option>
+                    </select>
+                
+                    <div class="batch-list">
+                        <h2>Processed Batches</h2>
+                        <ul id="batch-list">
+                            <!-- Processed batches will be shown here -->
+                        </ul>
+                    </div>
+                
+                    <div class="product-details">
+                        <h2>Product Details</h2>
+                        <ul id="product-info">
+                            <!-- Product details will be shown here -->
+                        </ul>
+                    </div>
+                
+                    <button class="submit-btn" id="submit-btn" style="display:none;">Update Stock</button>
+                </div>
+                
+                <script>
+                    const productCategory = document.getElementById('product-category');
+                    const batchList = document.getElementById('batch-list');
+                    const productInfo = document.getElementById('product-info');
+                    const submitBtn = document.getElementById('submit-btn');
+                
+                    const batches = {
+                        crop: [
+                            { id: 'C001', name: 'Rice Batch A' },
+                            { id: 'C002', name: 'Wheat Batch B' },
+                        ],
+                        fruits: [
+                            { id: 'F001', name: 'Apple Batch X' },
+                            { id: 'F002', name: 'Mango Batch Y' },
+                        ],
+                        fish: [
+                            { id: 'I001', name: 'Salmon Batch 1' },
+                            { id: 'I002', name: 'Tilapia Batch 2' },
+                        ]
+                    };
+                
+                    const productDetails = {
+                        C001: {
+                            origin: 'Bangladesh', harvestDate: '2024-05-10', expiryDate: '2025-05-10',
+                            farmName: 'Green Farm', processingDate: '2024-05-12'
+                        },
+                        C002: {
+                            origin: 'India', harvestDate: '2024-06-01', expiryDate: '2025-06-01',
+                            farmName: 'Golden Fields', processingDate: '2024-06-03'
+                        },
+                        F001: {
+                            origin: 'USA', harvestDate: '2024-03-20', expiryDate: '2025-03-20',
+                            farmName: 'Fresh Orchards', processingDate: '2024-03-22'
+                        },
+                        F002: {
+                            origin: 'Thailand', harvestDate: '2024-04-05', expiryDate: '2025-04-05',
+                            farmName: 'Tropical Farms', processingDate: '2024-04-07'
+                        },
+                        I001: {
+                            origin: 'Norway', harvestDate: '2024-07-15', expiryDate: '2025-07-15',
+                            farmName: 'Arctic Fisheries', processingDate: '2024-07-17'
+                        },
+                        I002: {
+                            origin: 'Vietnam', harvestDate: '2024-08-01', expiryDate: '2025-08-01',
+                            farmName: 'Delta Aquaculture', processingDate: '2024-08-03'
+                        }
+                    };
+                
+                    // Update batch list based on selected category
+                    productCategory.addEventListener('change', function () {
+                        const category = this.value;
+                        batchList.innerHTML = ''; // Clear previous list
+                        productInfo.innerHTML = ''; // Clear product details
+                
+                        if (category) {
+                            batches[category].forEach(batch => {
+                                const li = document.createElement('li');
+                                li.textContent = `${batch.id} - ${batch.name}`;
+                                li.onclick = () => showProductDetails(batch.id);
+                                batchList.appendChild(li);
+                            });
+                
+                            document.querySelector('.batch-list').style.display = 'block';
+                        } else {
+                            document.querySelector('.batch-list').style.display = 'none';
+                        }
+                    });
+                
+                    // Display product details when batch is selected
+                    function showProductDetails(batchId) {
+                        productInfo.innerHTML = '';
+                        const details = productDetails[batchId];
+                
+                        if (details) {
+                            const detailsList = `
+                                <li><p>Origin: </p><span>${details.origin}</span></li>
+                                <li><p>Harvest Date: </p><span>${details.harvestDate}</span></li>
+                                <li><p>Expiry Date: </p><span>${details.expiryDate}</span></li>
+                                <li><p>Farm Name: </p><span>${details.farmName}</span></li>
+                                <li><p>Processing Date: </p><span>${details.processingDate}</span></li>
+                            `;
+                            productInfo.innerHTML = detailsList;
+                            document.querySelector('.product-details').style.display = 'block';
+                            submitBtn.style.display = 'inline-block';
+                        }
+                    }
+                
+                    // Handle stock update submission
+                    submitBtn.addEventListener('click', function () {
+                        alert('Stock Updated Successfully!');
+                        productCategory.value = '';
+                        batchList.innerHTML = '';
+                        productInfo.innerHTML = '';
+                        submitBtn.style.display = 'none';
+                        document.querySelector('.batch-list').style.display = 'none';
+                        document.querySelector('.product-details').style.display = 'none';
+                    });
+                </script>
+                
+                </body>
+                </html>
+                
+</html>
+
+</html>
+
+
+
+  
+
+      <script>
+ let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+let menuItems = document.querySelectorAll(".nav-links li");
+
+// Open sidebar when mouse is over the menu button
+sidebarBtn.addEventListener("mouseover", () => {
+  sidebar.classList.remove("close");
+});
+
+// Open sidebar when hovering over any <li> item
+menuItems.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    sidebar.classList.remove("close");
+  });
+});
+
+// Close sidebar when mouse leaves the sidebar
+sidebar.addEventListener("mouseout", () => {
+  sidebar.classList.add("close");
+});
+
+
+
+      </script>
+
+ 
+</body>
+
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</html>

@@ -38,9 +38,10 @@
             </ul>
           </li>
           <li>
-            <a href="#">
+            <a href="personInOrg.html">
               <i class='bx bx-line-chart' ></i>
-              <span class="link_name">Chart</span>
+              <span class="link_name">My Organization
+              </span>
             </a>
             <ul class="sub-menu blank">
               <li><a class="link_name" href="#">Chart</a></li>
@@ -56,18 +57,18 @@
             </ul>
           </li>
           <li>
-            <a href="#">
+            <a href="warehouseManagement.html">
               <i class='bx bx-cog' ></i>
-              <span class="link_name">Settings</span>
+              <span class="link_name">Manage Warehouse</span>
             </a>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Setting</a></li>
+              <li><a class="link_name" href="#">Manage Warehouse</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">
+            <a href="pending.html">
               <i class='bx bx-support' ></i>
-              <span class="link_name">Help and Support</span>
+              <span class="link_name">Pending User</span>
             </a>
             <ul class="sub-menu blank">
               <li><a class="link_name" href="#">Help and Support</a></li>
@@ -97,39 +98,79 @@
             <div class="row">
                 
 
-                <div class="traceability-container">
-                    <h2>Trace Product Journey</h2>
-                    <input type="text" placeholder="Enter Product or Batch ID" id="trace-input" />
-                    <button onclick="traceProduct()">Trace Product</button>
-                
-                    <div class="trace-steps">
-                        <div class="trace-step">
-                            <h3>Farm</h3>
-                            <p>Farm Name: Green Valley</p>
-                            <p>Location: Rajshahi</p>
-                            <p>Harvest Date: 2023-08-12</p>
-                        </div>
-                        <div class="trace-step">
-                            <h3>Processing Unit</h3>
-                            <p>Unit Name: Prime Processors</p>
-                            <p>Processing Date: 2023-08-15</p>
-                            <p>Type: Organic Processing</p>
-                        </div>
-                        <div class="trace-step">
-                            <h3>Warehouse</h3>
-                            <p>Warehouse ID: W001</p>
-                            <p>Location: Dhaka</p>
-                            <p>Storage Temperature: 5°C</p>
-                        </div>
-                        <div class="trace-step">
-                            <h3>Retailer</h3>
-                            <p>Retailer Name: Fresh Mart</p>
-                            <p>Order Date: 2023-08-20</p>
-                            <p>Delivery Status: In Transit</p>
-                        </div>
+              <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="row shop-tracking-status">
+    
+    <div class="col-md-12">
+        <div class="well">
+    
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="inputOrderTrackingID" class="col-sm-2 control-label">Batch/Order ID</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputOrderTrackingID" value="" placeholder="# Put your batchID or productID id here">
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" id="shopGetOrderStatusID" class="btn btn-success">Get status</button>
+                    </div>
+                </div>
+            </div>
+    
+            <h4>Your Search status:</h4>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="prefix">Date Harvested:</span>
+                    <span class="label label-success">12.12.2013</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="prefix">Expiry date:</span>
+                    <span class="label label-success">12.15.2013</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="prefix">Certification:</span>
+                    <span class="label label-success">Halal</span>
+                </li>
+                <li class="list-group-item">You can find out latest status of your order with the following link:</li>
+                <li class="list-group-item"><a href="//tracking/link/goes/here">//tracking/link/goes/here</a></li>
+            </ul>
+
+            <div class="order-status">
+
+                <div class="order-status-timeline">
+                    <!-- class names: c0 c1 c2 c3 and c4 -->
+                    <div class="order-status-timeline-completion c3"></div>
+                </div>
+
+                <div class="image-order-status image-order-status-new active img-circle">
+                    <span class="status">In Prossesing Unit Unit</span>
+                    <div class="icon"></div>
+                </div>
                 
+                
+                <div class="image-order-status image-order-status-intransit active img-circle">
+                    <span class="status">Warehouse</span>
+                    <div class="icon"></div>
+                </div>
+                
+                
+                <div class="image-order-status image-order-status-completed active img-circle">
+                    <span class="status">Retailer</span>
+                    <div class="icon"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
     
                 <!-- Summary Cards with Styled Background -->
 
