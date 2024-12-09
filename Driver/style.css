@@ -449,3 +449,95 @@ button:hover {
       padding: 6px 12px;
   }
 }
+/* settings style */
+/* General Styles */
+.personalDetails-section {
+  padding: 20px;
+  background-color: #ffefef;
+  
+  
+}
+
+.personalDetails-content h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  
+}
+
+.maincontent {
+  max-width: 200px;
+ 
+  margin: 0 auto;
+}
+
+/* Flexbox for the form-container */
+.form-container {
+  display: flex;
+  justify-content: space-between; /* Ensures space between image and form fields */
+  align-items: flex-start; /* Aligns items to the top */
+  gap: 50px; /* Adds gap between the sections */
+  
+  
+}
+
+/* Profile Picture Section */
+.profile-section {
+  flex: 0 0 150px; /* Fixes the width of the profile section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.patronimage img {
+  width: 120px; /* Adjust the size of the image */
+  height: 120px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;
+}
+
+/* Form Fields Section */
+.form-fields {
+  flex-grow: 1; /* The form section will take up the remaining space */
+}
+
+fieldset {
+  border: 1px solid #b4b4b4;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(244, 244, 255);
+}
+
+legend {
+  font-weight: bold;
+}
+
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+input[type="text"], select {
+  width: 60%;
+  padding: 5px;
+  margin-top: 5px;
+  border: 2px solid #8f8f8f;
+  border-radius: 5px;
+}
+
+/* Optional: Add some spacing to the bottom of the form */
+form {
+  margin-bottom: 20px;
+}
+form ol li input[readonly] {
+background-color: #f9f9f9;
+cursor: not-allowed;
+}
