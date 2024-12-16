@@ -347,6 +347,118 @@ background-color: #f9f9f9;
 cursor: not-allowed;
 }
 
+/* Orders code here */
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
 
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
 
+/* Header Styles */
+header {
+  text-align: center;
+  padding: 40px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2em;
+  font-weight: lighter;
+}
+
+/* Product Table Styles */
+.order-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #4CAF50;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th, .product-table td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 1.1em;
+}
+
+.product-table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.product-table td {
+  background-color: #fff;
+}
+
+/* Input & Button Styles */
+input[type="number"] {
+  width: 70px;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.order-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  font-size: 1.1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-btn:hover {
+  background-color: #45a049;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+  font-size: 1em;
+  font-weight: lighter;
+}
