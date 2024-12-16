@@ -338,309 +338,209 @@
       transform: rotate(360deg) translateX(20px) rotate(-360deg);
   }
 }
-
-
-.card-body {
-  padding: 20px;
-  background-color: transparent;
-}
-
-.default-dashboard .welcome-banner h1 img, .default-dashboard .welcome-banner .h1 img {
-  width: 20px;
-  height: auto;
-  cursor: pointer;
-  animation-name: wave-animation;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  transform-origin: 70% 70%;
-}
-
-.btn-pill {
-  border-radius: 60px;
-}
-
-.btn-primary {
-  background-color: #308e87 !important;
-  border: 1px solid #308e87;
-  color: #ffffff;
-}
-
-.real-time-clock {
-    width: 100px;
-    height: 100px;
-    margin-top: 10px;
-}
-
-
-/* Card Styling for Summary Cards */
-.styled-card {
-  background-color:#ffffff ;
-  color: #308e87;
-  border-radius: 1.5rem;
-  position: relative;
-  overflow: hidden;
-  padding-top: 20px;
-  min-height: 350px;
-}
-
-/* Similar Design Elements to Welcome Card */
-.styled-card .card-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #000706;
-  margin-top: 100px;
-}
-
-.styled-card .display-4 {
-  font-size: 3rem;
-  font-weight: bold;
   
+
+/* transport management code here */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.styled-card .card-body {
-  position: relative;
-  z-index: 1;
+/* Main Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    
+    align-items: flex;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-/* Decorative Images */
-.styled-card img.position-absolute {
-  opacity: 0.2;
-  z-index: 0;
-  width: 80px;
+/* Main Container */
+.main-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1780px;
+    overflow: hidden;
 }
 
-.table th, .table td {
-  vertical-align: middle;
-}
-.rounded-table {
-  border-radius: 10px;
-  overflow: hidden;
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.card-header {
-  border-bottom: 1px solid #e0e0e0;
-  font-weight: 500;
-  font-size: 1.1em;
+.header h1 {
+    font-size: 28px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
-.inspection-list, .batch-location {
-  margin-top: 20px;
+/* Content Section */
+.content-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
-.table {
-  border-collapse: separate;
-  border-spacing: 0 10px; /* Adds space between rows */
+/* Left Container */
+.left-container {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.table thead th {
-  color: #6c757d;
-  font-weight: 500;
+.left-container .dropdown {
+    margin-bottom: 20px;
 }
 
-.table tbody tr {
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+.left-container label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
 }
 
-.table tbody tr td {
-  vertical-align: middle;
-  padding: 12px 10px;
-  border-top: none;
+.left-container select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    font-size: 16px;
 }
 
-.table tbody tr td:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+.driver-info {
+    margin-top: 20px;
 }
 
-.table tbody tr td:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+.driver-info h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
 }
 
-.badge {
-  font-size: 0.85em;
-  padding: 5px 10px;
-  border-radius: 15px;
+.driver-info p {
+    font-size: 16px;
+    color: #555;
 }
 
-.bg-success {
-  background-color: #d4edda;
-  color: #28a745;
+/* Right Container */
+.right-container {
+    flex: 1;
+    min-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.bg-warning {
-  background-color: #fff3cd;
-  color: #856404;
+.form h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
 }
 
-.styled-card .table {
-  margin-bottom: 0;
+.form label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
 }
 
-.styled-card .table th, .styled-card .table td {
-  padding: 12px;
-  font-size: 15px;
-  vertical-align: middle;
+.form input,
+.form select,
+.form button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
-.styled-card .table thead th {
-  color: #308e87;
-  font-weight: bold;
+.form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.styled-card .table tbody tr {
-  transition: all 0.3s ease;
+.form button:hover {
+    background-color: #45a049;
 }
 
-.styled-card .table tbody tr:hover {
-  background-color: #f2f2f2;
+/* Driver List Table */
+.driver-list {
+    margin-top: 50px;
 }
 
-.styled-card .table {
-  margin-bottom: 0;
+.driver-list h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.styled-card .table th, .styled-card .table td {
-  padding: 12px;
-  font-size: 15px;
-  vertical-align: middle;
+.driver-list table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.styled-card .table thead th {
-  color: #308e87;
-  font-weight: bold;
+.driver-list table th,
+.driver-list table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ccc;
 }
 
-.styled-card .table tbody tr {
-  transition: all 0.3s ease;
+.driver-list table th {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
 }
 
-.styled-card .table tbody tr:hover {
-  background-color: #f2f2f2;
+.driver-list table tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
-.traceability-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+.driver-list table tr:hover {
+    background-color: #e9e9e9;
 }
 
-.trace-steps {
-  display: flex;
-  flex-direction: column;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
 
-.trace-step {
-  background: #f9f9f9;
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    .left-container, .right-container {
+        margin-bottom: 30px;
+        width: 100%;
+    }
 
-.trace-step h3 {
-  color: #308e87;
-  margin-bottom: 8px;
-}
+    .driver-list table th,
+    .driver-list table td {
+        font-size: 14px;
+    }
 
-.trace-step p {
-  margin: 4px 0;
-  color: #333;
-}
+    .header h1 {
+        font-size: 24px;
+    }
 
-/* settings style */
-/* General Styles */
-.personalDetails-section {
-  padding: 20px;
-  background-color: #ffefef;
-  
-  
+    .driver-info p,
+    .form label {
+        font-size: 14px;
+    }
 }
-
-.personalDetails-content h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  
-}
-
-.maincontent {
-  max-width: 200px;
- 
-  margin: 0 auto;
-}
-
-/* Flexbox for the form-container */
-.form-container {
-  display: flex;
-  justify-content: space-between; /* Ensures space between image and form fields */
-  align-items: flex-start; /* Aligns items to the top */
-  gap: 50px; /* Adds gap between the sections */
-  
-  
-}
-
-/* Profile Picture Section */
-.profile-section {
-  flex: 0 0 150px; /* Fixes the width of the profile section */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.patronimage img {
-  width: 120px; /* Adjust the size of the image */
-  height: 120px;
-  border-radius: 50%; /* Makes the image circular */
-  object-fit: cover;
-}
-
-/* Form Fields Section */
-.form-fields {
-  flex-grow: 1; /* The form section will take up the remaining space */
-}
-
-fieldset {
-  border: 1px solid #b4b4b4;
-  padding: 15px;
-  border-radius: 10px;
-  background-color: rgb(244, 244, 255);
-}
-
-legend {
-  font-weight: bold;
-}
-
-ol {
-  list-style: none;
-  padding-left: 0;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-label {
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-input[type="text"], select {
-  width: 60%;
-  padding: 5px;
-  margin-top: 5px;
-  border: 2px solid #8f8f8f;
-  border-radius: 5px;
-}
-
-/* Optional: Add some spacing to the bottom of the form */
-form {
-  margin-bottom: 20px;
-}
-form ol li input[readonly] {
-background-color: #f9f9f9;
-cursor: not-allowed;
-}
-
-
