@@ -89,203 +89,92 @@
             <i class='bx bx-menu'></i>
             <span class="text">Warehouse Manager Dashboard</span>
         </div>
-        <div class="container-fluid default-dashboard">
+        < class="container-fluid default-dashboard">
             <div class="row">
+            </div>
+        
                 <!-- Welcome Banner Card -->
-                
-                <script>
-                  // Sample data to simulate database queries
-                  const farmData = {
-                    'FF001': {
-                      farmName: 'Fortune Agro',
-                      subDistrict: 'Dinajpur Sadar',
-                      district: 'Dinajpur',
-                      division: 'Rangpur',
-                      email: 'fortuneagro@gmail.com',
-                      contactNo: '+1732265448',
-                      farmType: 'Organic'
-                    }
-                  };
-              
-                  const productData = {
-                    'P001': {
-                      productName: 'Potato',
-                      shelfLife: 60,
-                      temp: '30',
-                      humidity: '20',
-                      mrp: 20.00,
-                      productType: 'Vegetable'
-                    }
-                  };
-              
-                  const lotData = {
-                    'L001': {
-                      productionDate: '2024-12-11',
-                      harvestArea: '50 acres',
-                      weight: 2000,
-                      quantity: 1000,
-                      status: 'Processed'
-                    }
-                  };
-              
-                  const batchData = {
-                    'B001': {
-                      processingDate: '2024-12-10',
-                      certification: 'Halal',
-                      weight: 25,
-                      quantity: 1000,
-                      rating: 4.5,
-                      productType: 'Vegetable',
-                      lotID: 'L001'
-                    }
-                  };
-              
-                  const inspectionData = {
-                    'B001': {
-                      reportID: 201,
-                      time: '2024-12-11 10:00:00',
-                      date: '2024-12-11',
-                      productID: 1,
-                      qcoID: 101,
-                      warehouseID: 501
-                    }
-                  };
-              
-                  const deliveryData = {
-                    'S001': {
-                      shipmentDate: '2024-12-11',
-                      warehouseID: 'W001',
-                      transportID: 'T001',
-                      driverID: 'D001'
-                    }
-                  };
-              
-                  // Function to show details in the popup window
-                  function showDetails(productId, batchId) {
-                    let details = `
+               
+                  <div class="container">
+                      <header>
+                          <h1>Transport Management System</h1>
+                      </header>
                       
-                      
-                      <!-- Farm Details -->
-                      <div class="detail-section">
-                        <h3>Farm Details</h3>
-                        <p><strong>Farm Name:</strong> ${farmData['FF001'].farmName}</p>
-                        <p><strong>Sub District:</strong> ${farmData['FF001'].subDistrict}</p>
-                        <p><strong>District:</strong> ${farmData['FF001'].district}</p>
-                        <p><strong>Division:</strong> ${farmData['FF001'].division}</p>
-                        <p><strong>Email:</strong> ${farmData['FF001'].email}</p>
-                        <p><strong>Contact No:</strong> ${farmData['FF001'].contactNo}</p>
-                        <p><strong>Farm Type:</strong> ${farmData['FF001'].farmType}</p>
+                      <div class="content">
+                          <!-- Dropdown to select driver -->
+                          <div class="dropdown">
+                              <label for="driver-select">Select Driver:</label>
+                              <select id="driver-select">
+                                  <option value="">-- Select a Driver --</option>
+                                  <!-- Example drivers list, this should be dynamically generated from the database -->
+                                  <option value="1">Driver 1</option>
+                                  <option value="2">Driver 2</option>
+                                  <option value="3">Driver 3</option>
+                              </select>
+                          </div>
+              
+                          <!-- Driver information display area -->
+                          <div class="driver-info">
+                              <h2>Driver Information</h2>
+                              <p id="driver-name">Name: </p>
+                              <p id="driver-license">License No: </p>
+                              <p id="driver-contact">Contact: </p>
+                          </div>
+              
+                          <!-- Form to add transport -->
+                          <div class="form">
+                              <h2>Create Transport</h2>
+                              <form action="#" method="post">
+                                  <label for="vehicle-reg-no">Vehicle Registration No:</label>
+                                  <input type="text" id="vehicle-reg-no" name="vehicle-reg-no" required><br>
+              
+                                  <label for="transport-capacity">Transport Capacity:</label>
+                                  <input type="number" id="transport-capacity" name="transport-capacity" required><br>
+              
+                                  <label for="humidity">Humidity:</label>
+                                  <input type="number" id="humidity" name="humidity" required><br>
+              
+                                  <label for="driver">Assign Driver:</label>
+                                  <select id="driver" name="driver" required>
+                                      <option value="">-- Select a Driver --</option>
+                                      <!-- Example drivers list, this should be dynamically generated from the database -->
+                                      <option value="1">Driver 1</option>
+                                      <option value="2">Driver 2</option>
+                                      <option value="3">Driver 3</option>
+                                  </select><br>
+              
+                                  <button type="submit">Assign Transport</button>
+                              </form>
+                          </div>
                       </div>
-              
-                      <!-- Product Details -->
-                      <div class="detail-section">
-                        <h3>Product Details</h3>
-                        <p><strong>Product Name:</strong> ${productData[productId].productName}</p>
-                        <p><strong>Shelf Life:</strong> ${productData[productId].shelfLife} days</p>
-                        <p><strong>Temperature:</strong> ${productData[productId].temp}°C</p>
-                        <p><strong>Humidity:</strong> ${productData[productId].humidity}%</p>
-                        <p><strong>MRP:</strong> $${productData[productId].mrp}</p>
-                        <p><strong>Product Type:</strong> ${productData[productId].productType}</p>
-                      </div>
-              
-                      <!-- Batch Details -->
-                      <div class="detail-section">
-                        <h3>Batch Details</h3>
-                        <p><strong>Batch ID:</strong> ${batchId}</p>
-                        <p><strong>Processing Date:</strong> ${batchData[batchId].processingDate}</p>
-                        <p><strong>Certification:</strong> ${batchData[batchId].certification}</p>
-                        <p><strong>Weight:</strong> ${batchData[batchId].weight} kg</p>
-                        <p><strong>Quantity:</strong> ${batchData[batchId].quantity} units</p>
-                        <p><strong>Rating:</strong> ${batchData[batchId].rating}/5</p>
-                        <p><strong>Product Type:</strong> ${batchData[batchId].productType}</p>
-                        <p><strong>Lot ID:</strong> ${batchData[batchId].lotID}</p>
-                      </div>
-              
-                      <!-- Inspection Details -->
-                      <div class="detail-section">
-                        <h3>Inspection Details</h3>
-                        <p><strong>Report ID:</strong> ${inspectionData[batchId].reportID}</p>
-                        <p><strong>Time:</strong> ${inspectionData[batchId].time}</p>
-                        <p><strong>Date:</strong> ${inspectionData[batchId].date}</p>
-                        <p><strong>Product ID:</strong> ${inspectionData[batchId].productID}</p>
-                        <p><strong>QCO ID:</strong> ${inspectionData[batchId].qcoID}</p>
-                        <p><strong>Warehouse ID:</strong> ${inspectionData[batchId].warehouseID}</p>
-                      </div>
-              
-                      <!-- Delivery Details -->
-                      <div class="detail-section">
-                        <h3>Delivery Details</h3>
-                        <p><strong>Shipment Date:</strong> ${deliveryData['S001'].shipmentDate}</p>
-                        <p><strong>Warehouse ID:</strong> ${deliveryData['S001'].warehouseID}</p>
-                        <p><strong>Transport ID:</strong> ${deliveryData['S001'].transportID}</p>
-                        <p><strong>Driver ID:</strong> ${deliveryData['S001'].driverID}</p>
-                      </div>
-              
-                      <button onclick="closePopup()">Close</button>
-                    `;
-                    // Show the details in the popup
-                    document.getElementById('popup-content').innerHTML = details;
-                    document.getElementById('popup').style.display = 'block';
-                  }
-              
-                  // Close the popup
-                  function closePopup() {
-                    document.getElementById('popup').style.display = 'none';
-                  }
-                </script>
-              </head>
-              <body>
-                <div class="container">
-                  <h1>Warehouse Inventory Details</h1>
-                  <p>Click on "View Details" to see more information about a product, including farm, batch, inspection, and delivery details.</p>
-              
-                  <!-- Inventory Table -->
-                  <table class="delivery-table">
-                    <thead>
-                      <tr>
-                        <th>Product ID</th>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Status</th>
-                        <th>Location</th>
-                        <th>Farm Name</th>
-                        <th>Product Type</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>P001</td>
-                        <td>Potato</td>
-                        <td>1000</td>
-                        <td>In Stock</td>
-                        <td>Aisle 1</td>
-                        <td>Fortune Agro</td>
-                        <td>Vegetable</td>
-                        <td><button onclick="showDetails('P001', 'B001')">View Details</button></td>
-                      </tr>
-                      <tr>
-                        <td>P002</td>
-                        <td>Tomato</td>
-                        <td>500</td>
-                        <td>Low Stock</td>
-                        <td>Aisle 2</td>
-                        <td>FruitWorld</td>
-                        <td>Vegetable</td>
-                        <td><button onclick="showDetails('P002', 'B002')">View Details</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              
-                <!-- Item Details Popup -->
-                <div id="popup" class="popup">
-                  <div class="popup-content" id="popup-content">
-                    <!-- Item details will be dynamically inserted here -->
                   </div>
-                </div>
+              
+                  <script>
+                      // This script will handle showing the driver's information dynamically
+                      document.getElementById('driver-select').addEventListener('change', function() {
+                          const driverId = this.value;
+                          
+                          // Replace with AJAX to fetch driver data from the database
+                          if(driverId == "1") {
+                              document.getElementById('driver-name').innerText = "Name: Driver 1";
+                              document.getElementById('driver-license').innerText = "License No: ABC123";
+                              document.getElementById('driver-contact').innerText = "Contact: 123-456-7890";
+                          } else if(driverId == "2") {
+                              document.getElementById('driver-name').innerText = "Name: Driver 2";
+                              document.getElementById('driver-license').innerText = "License No: DEF456";
+                              document.getElementById('driver-contact').innerText = "Contact: 234-567-8901";
+                          } else if(driverId == "3") {
+                              document.getElementById('driver-name').innerText = "Name: Driver 3";
+                              document.getElementById('driver-license').innerText = "License No: GHI789";
+                              document.getElementById('driver-contact').innerText = "Contact: 345-678-9012";
+                          } else {
+                              document.getElementById('driver-name').innerText = "Name: ";
+                              document.getElementById('driver-license').innerText = "License No: ";
+                              document.getElementById('driver-contact').innerText = "Contact: ";
+                          }
+                      });
+                  </script>
               </body>
-
 
   
 
@@ -318,7 +207,7 @@ sidebar.addEventListener("mouseout", () => {
  
 </body>
 
-</script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
 </html>

@@ -6,7 +6,7 @@
     <title>View Orders</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="transportManagement.css"> <!-- Link to custom CSS -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     
@@ -18,70 +18,79 @@
           <span class="logo_name">Safe Food</span>
         </div>
         <ul class="nav-links">
-          <li>
-            <a href="index.html">
-              <i class='bx bx-grid-alt' ></i>
-              <span class="link_name">Dashboard</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Category</a></li>
-            </ul>
-          </li>
-
-          <li>
-            <a href="trace_index.html">
-              <i class='bx bx-pie-chart-alt-2' ></i>
-              <span class="link_name">Trace Product</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#"></a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="personInOrg.html">
-              <i class='bx bx-line-chart' ></i>
-              <span class="link_name">My Organization</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Chart</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="order_index.html">
-              <i class='bx bx-history'></i>
-              <span class="link_name">Orders</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#"></a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="warehouseManagement.html">
-              <i class='bx bx-cog' ></i>
-              <span class="link_name">Manage Warehouse</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#"></a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="pending.html">
-              <i class='bx bx-support' ></i>
-              <span class="link_name">Pending User</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Help and Support</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="settingsPage.html">
-              <i class='bx bx-support' ></i>
-              <span class="link_name">User Settings</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">User Settings</a></li>
-            </ul>
-          </li>
+            <li>
+                <a href="index.html">
+                  <i class='bx bx-grid-alt' ></i>
+                  <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                  <li><a class="link_name" href="#">Category</a></li>
+                </ul>
+              </li>
+    
+              <li>
+                <a href="trace_index.html">
+                  <i class='bx bx-pie-chart-alt-2' ></i>
+                  <span class="link_name">Trace Product</span>
+                </a>
+                <ul class="sub-menu blank">
+                  <li><a class="link_name" href="#"></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="personInOrg.html">
+                  <i class='bx bx-line-chart' ></i>
+                  <span class="link_name">My Organization</span>
+                </a>
+                <ul class="sub-menu blank">
+                  <li><a class="link_name" href="#">Chart</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="order_index.html">
+                  <i class='bx bx-history'></i>
+                  <span class="link_name">Orders</span>
+                </a>
+                <ul class="sub-menu blank">
+                  <li><a class="link_name" href="#"></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="warehouseManagement.html">
+                  <i class='bx bx-cog' ></i>
+                  <span class="link_name">Manage Warehouse</span>
+                </a>
+                <ul class="sub-menu blank">
+                  <li><a class="link_name" href="#"></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="transportManagement.html">
+                  <i class='bx bx-cog' ></i>
+                  <span class="link_name">Manage Transport</span>
+                </a>
+                <ul class="sub-menu blank">
+                  <li><a class="link_name" href="#"></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="pending.html">
+                  <i class='bx bx-support' ></i>
+                  <span class="link_name">Pending User</span>
+                </a>
+                <ul class="sub-menu blank">
+                  <li><a class="link_name" href="#">Help and Support</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="settingsPage.html">
+                  <i class='bx bx-support' ></i>
+                  <span class="link_name">User Settings</span>
+                </a>
+                <ul class="sub-menu blank">
+                  <li><a class="link_name" href="#">User Settings</a></li>
+                </ul>
+              </li>
 
           <li>
         <div class="profile-details">
@@ -100,188 +109,146 @@
       <section class="home-section">
         <div class="home-content">
             <i class='bx bx-menu'></i>
-            <span class="text">Admin Dashboard</span>
+            <span class="text">Transport Management System</span>
         </div>
         <div class="container-fluid default-dashboard">
             <div class="row">
                 <!-- Welcome -->
-                <?php
-                // Establish a database connection
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "transport_system";
-                
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-                
-                // Fetch driver data from the database for the dropdown
-                $drivers = $conn->query("SELECT driverID, driver_name FROM drivers");
-                
-                // Assign transport to a driver
-                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                    $transportID = $_POST['transportID'];
-                    $vehicle_reg_no = $_POST['vehicle_reg_no'];
-                    $driverID = $_POST['driverID'];
-                    $capacity = $_POST['capacity'];
-                    $humidity = $_POST['humidity'];
-                
-                    // SQL to insert the transport and assign the driver
-                    $sql = "INSERT INTO transports (transportID, vehicle_reg_no, driverID, transport_capacity, humidity)
-                            VALUES ('$transportID', '$vehicle_reg_no', '$driverID', '$capacity', '$humidity')";
-                
-                    if ($conn->query($sql) === TRUE) {
-                        echo "Transport assigned successfully!";
-                    } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
-                    }
-                }
-                
-                $conn->close();
-                ?>
-                
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Transport Management System</title>
-                    <style>
-                        body {
-                            font-family: Arial, sans-serif;
-                            background-color: #f4f4f4;
-                            margin: 0;
-                            padding: 0;
-                        }
-                        .container {
-                            width: 60%;
-                            margin: 50px auto;
-                            padding: 20px;
-                            background-color: #fff;
-                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                        }
-                        h2 {
-                            text-align: center;
-                            color: #333;
-                        }
-                        .form-group {
-                            margin: 20px 0;
-                        }
-                        label {
-                            font-size: 16px;
-                            margin-bottom: 10px;
-                            display: block;
-                        }
-                        input[type="text"], select {
-                            width: 100%;
-                            padding: 10px;
-                            font-size: 16px;
-                            margin: 8px 0;
-                            border: 1px solid #ccc;
-                            border-radius: 4px;
-                        }
-                        button {
-                            padding: 10px 15px;
-                            background-color: #4CAF50;
-                            color: white;
-                            border: none;
-                            border-radius: 4px;
-                            cursor: pointer;
-                        }
-                        button:hover {
-                            background-color: #45a049;
-                        }
-                        .message {
-                            text-align: center;
-                            font-size: 18px;
-                            margin-top: 20px;
-                            color: green;
-                        }
-                        .driver-list {
-                            margin-top: 20px;
-                            padding: 15px;
-                            background-color: #e7f3e7;
-                            border: 1px solid #d0e9d0;
-                        }
-                    </style>
-                </head>
                 <body>
+                    <div class="main-container">
+                        <!-- Header Section -->
+                        <header class="header">
+                            <h1>Transport Management System</h1>
+                        </header>
                 
-                    <div class="container">
-                        <h2>Transport Management System</h2>
-                        
-                        <form action="" method="POST">
-                            <div class="form-group">
-                                <label for="transportID">Transport ID:</label>
-                                <input type="text" id="transportID" name="transportID" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="vehicle_reg_no">Vehicle Registration No:</label>
-                                <input type="text" id="vehicle_reg_no" name="vehicle_reg_no" required>
-                            </div>
+                        <!-- Main Content Section -->
+                        <div class="content-container">
+                            <!-- Left Section: Driver Selection and Driver Info -->
+                            <div class="left-container">
+                                <div class="dropdown">
+                                    <label for="driver-select">Select Driver:</label>
+                                    <select id="driver-select">
+                                        <option value="">-- Select a Driver --</option>
+                                        <option value="1">Driver 1</option>
+                                        <option value="2">Driver 2</option>
+                                        <option value="3">Driver 3</option>
+                                    </select>
+                                </div>
                 
-                            <div class="form-group">
-                                <label for="capacity">Transport Capacity:</label>
-                                <input type="text" id="capacity" name="capacity" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="humidity">Humidity:</label>
-                                <input type="text" id="humidity" name="humidity" required>
-                            </div>
-                
-                            <div class="form-group">
-                                <label for="driverID">Select Driver:</label>
-                                <select id="driverID" name="driverID" required>
-                                    <option value="">Select Driver</option>
-                                    <?php
-                                    if ($drivers->num_rows > 0) {
-                                        while($row = $drivers->fetch_assoc()) {
-                                            echo "<option value='" . $row['driverID'] . "'>" . $row['driver_name'] . "</option>";
-                                        }
-                                    }
-                                    ?>
-                                </select>
+                                <!-- Driver Information Display -->
+                                <div class="driver-info">
+                                    <h2>Driver Information</h2>
+                                    <p id="driver-name">Name: </p>
+                                    <p id="driver-license">License No: </p>
+                                    <p id="driver-contact">Contact: </p>
+                                    <p id="driver-address">Address: </p>
+                                    <p id="driver-status">Status: </p>
+                                </div>
                             </div>
                 
-                            <div class="driver-list">
-                                <h3>Selected Driver:</h3>
-                                <p id="selectedDriver">No driver selected.</p>
+                            <!-- Right Section: Transport Assignment Form -->
+                            <div class="right-container">
+                                <div class="form">
+                                    <h2>Create Transport</h2>
+                                    <form action="#" method="post">
+                                        <label for="vehicle-reg-no">Vehicle Registration No:</label>
+                                        <input type="text" id="vehicle-reg-no" name="vehicle-reg-no" required><br>
+                
+                                        <label for="transport-storage-temp">Transport Storage Temperature:</label>
+                                        <input type="number" id="transport-storage-temp" name="transport-storage-temp" required><br>
+                
+                                        <label for="transport-capacity">Transport Capacity:</label>
+                                        <input type="number" id="transport-capacity" name="transport-capacity" required><br>
+                
+                                        <label for="humidity">Humidity:</label>
+                                        <input type="number" id="humidity" name="humidity" required><br>
+                
+                                        <label for="driver">Assign Driver:</label>
+                                        <select id="driver" name="driver" required>
+                                            <option value="">-- Select a Driver --</option>
+                                            <option value="1">Driver 1</option>
+                                            <option value="2">Driver 2</option>
+                                            <option value="3">Driver 3</option>
+                                        </select><br>
+                
+                                        <button type="submit">Assign Transport</button>
+                                    </form>
+                                </div>
                             </div>
+                        </div>
                 
-                            <button type="submit">Assign Transport to Driver</button>
-                        </form>
-                
-                        <div class="message">
-                            <!-- Success message will appear here if the transport is assigned -->
+                        <!-- Driver List Table Section -->
+                        <div class="driver-list">
+                            <h2>Driver List</h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Transport ID</th>
+                                        <th>Driver ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>License No</th>
+                                        <th>Contact</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Example of dynamically fetched data -->
+                                    <!-- This data will be populated dynamically using backend code (PHP, Node.js, etc.) -->
+                                    <!-- Example: -->
+                                    <!-- <tr>
+                                        <td>101</td>
+                                        <td>1</td>
+                                        <td>John</td>
+                                        <td>Doe</td>
+                                        <td>john@example.com</td>
+                                        <td>ABC123</td>
+                                        <td>123-456-7890</td>
+                                        <td>Active</td>
+                                    </tr> -->
+                                    <!-- This content will be dynamically generated from your database -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 
                     <script>
-                        // Display the selected driver name
-                        const driverDropdown = document.getElementById('driverID');
-                        const selectedDriver = document.getElementById('selectedDriver');
-                
-                        driverDropdown.addEventListener('change', function() {
-                            const selectedOption = driverDropdown.options[driverDropdown.selectedIndex].text;
-                            selectedDriver.textContent = selectedOption ? `Driver: ${selectedOption}` : 'No driver selected.';
+                        // Script to dynamically update driver info
+                        document.getElementById('driver-select').addEventListener('change', function() {
+                            const driverId = this.value;
+                            
+                            // Example data update
+                            if(driverId == "1") {
+                                document.getElementById('driver-name').innerText = "Name: John Doe";
+                                document.getElementById('driver-license').innerText = "License No: ABC123";
+                                document.getElementById('driver-contact').innerText = "Contact: 123-456-7890";
+                                document.getElementById('driver-address').innerText = "Address: 123 Some Street, Some District";
+                                document.getElementById('driver-status').innerText = "Status: Active";
+                            } else if(driverId == "2") {
+                                document.getElementById('driver-name').innerText = "Name: Jane Smith";
+                                document.getElementById('driver-license').innerText = "License No: DEF456";
+                                document.getElementById('driver-contact').innerText = "Contact: 234-567-8901";
+                                document.getElementById('driver-address').innerText = "Address: 456 Another Street, Another District";
+                                document.getElementById('driver-status').innerText = "Status: Inactive";
+                            } else if(driverId == "3") {
+                                document.getElementById('driver-name').innerText = "Name: Alice Johnson";
+                                document.getElementById('driver-license').innerText = "License No: GHI789";
+                                document.getElementById('driver-contact').innerText = "Contact: 345-678-9012";
+                                document.getElementById('driver-address').innerText = "Address: 789 New Street, New District";
+                                document.getElementById('driver-status').innerText = "Status: Active";
+                            } else {
+                                document.getElementById('driver-name').innerText = "Name: ";
+                                document.getElementById('driver-license').innerText = "License No: ";
+                                document.getElementById('driver-contact').innerText = "Contact: ";
+                                document.getElementById('driver-address').innerText = "Address: ";
+                                document.getElementById('driver-status').innerText = "Status: ";
+                            }
                         });
                     </script>
-                
                 </body>
-
             </div>
         
-
-
-
-
 
                 
                 <!-- Summary Cards with Styled Background -->

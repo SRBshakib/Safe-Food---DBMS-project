@@ -65,6 +65,15 @@
             </ul>
           </li>
           <li>
+            <a href="transportManagement.html">
+              <i class='bx bx-cog' ></i>
+              <span class="link_name">Manage Transport</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#"></a></li>
+            </ul>
+          </li>
+          <li>
             <a href="pending.html">
               <i class='bx bx-support' ></i>
               <span class="link_name">Pending User</span>
@@ -104,160 +113,268 @@
         </div>
         <div class="container-fluid default-dashboard">
             <div class="row">
+              <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for additional styling */
+        body {
+            background-color: #f4f4f4;
+            padding-top: 5px;
+        }
+        .container {
+            max-width: 1800px;
+        }
+        .form-container, .table-container {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="text-center mb-4">
+            <h3>Warehouse Management System</h3>
+        </header>
 
-                <!-- Welcome Banner Card -->
-                <body>
-                    <div class="container">
-                        <h1>Warehouse Management</h1>
-                
-                        <!-- Side by side layout for Add Warehouse and Warehouse List -->
-                        <div class="side-by-side">
-                            <!-- Form to input new warehouse info -->
-                            <div class="form-container">
-                                <h2>Add Warehouse</h2>
-                                <form id="warehouse-form">
-                                    <label for="name">Warehouse Name:</label>
-                                    <input type="text" id="name" required>
-                
-                                    <label for="location">Location:</label>
-                                    <input type="text" id="location" required>
-                
-                                    <label for="capacity">Capacity:</label>
-                                    <input type="number" id="capacity" required>
-                
-                                    <label for="manager">Manager:</label>
-                                    <input type="text" id="manager" required>
-                
-                                    <button type="submit">Add Warehouse</button>
-                                </form>
+        <div class="row">
+            <!-- Warehouse Creation & Manager Assignment Form -->
+            <div class="col-md-12 form-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Create Warehouse and Assign Manager</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="warehouse-form">
+                            <!-- District, Sub-District, Division Selection -->
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="district-select" class="form-label">Select District:</label>
+                                    <select class="form-select" id="district-select" required>
+                                        <option value="">-- Select District --</option>
+                                        <!-- Example district options will be populated here -->
+                                        <option value="1">District 1</option>
+                                        <option value="2">District 2</option>
+                                        <option value="3">District 3</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="sub-district-select" class="form-label">Sub-District:</label>
+                                    <select class="form-select" id="sub-district-select" required>
+                                        <option value="">-- Select Sub-District --</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="division-select" class="form-label">Division:</label>
+                                    <select class="form-select" id="division-select" required>
+                                        <option value="">-- Select Division --</option>
+                                    </select>
+                                </div>
                             </div>
-                
-                            <!-- Section to display the warehouse list -->
-                            <div class="table-container">
-                                <h2>Warehouse List</h2>
-                                <table id="warehouse-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Location</th>
-                                            <th>Capacity</th>
-                                            <th>Manager</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Dynamic content will be inserted here -->
-                                    </tbody>
-                                </table>
+
+                            <!-- Warehouse Information Fields -->
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="storage-capacity" class="form-label">Storage Capacity (m²):</label>
+                                    <input type="number" class="form-control" id="storage-capacity" required>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="humidity-level" class="form-label">Humidity Level (%):</label>
+                                    <input type="number" class="form-control" id="humidity-level" required>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="temperature" class="form-label">Temperature (°C):</label>
+                                    <input type="number" class="form-control" id="temperature" required>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="phone" class="form-label">Phone:</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="email" class="form-label">Email:</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
                             </div>
+
+                            <!-- Manager Assignment -->
+                            <div class="mb-3">
+                                <label for="manager-select" class="form-label">Select Warehouse Manager:</label>
+                                <select class="form-select" id="manager-select" required>
+                                    <option value="">-- Select a Manager --</option>
+                                    <option value="1">Manager 1</option>
+                                    <option value="2">Manager 2</option>
+                                    <option value="3">Manager 3</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Create Warehouse and Assign Manager</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manager Information Display -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Manager Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div id="manager-info">
+                            <h5>Manager Information:</h5>
+                            <p id="manager-firstname">First Name: </p>
+                            <p id="manager-lastname">Last Name: </p>
+                            <p id="manager-gender">Gender: </p>
+                            <p id="manager-username">Username: </p>
+                            <p id="manager-email">Email: </p>
+                            <p id="manager-status">Status: </p>
+                            <p id="manager-affiliation-date">Affiliation Date: </p>
                         </div>
                     </div>
-                
-                    <!-- Edit Popup -->
-                    <div id="edit-popup" class="popup">
-                        <div class="popup-content">
-                            <span id="popup-close" class="popup-close">&times;</span>
-                            <h2>Edit Warehouse</h2>
-                            <form id="edit-form">
-                                <label for="edit-name">Warehouse Name:</label>
-                                <input type="text" id="edit-name" required>
-                
-                                <label for="edit-location">Location:</label>
-                                <input type="text" id="edit-location" required>
-                
-                                <label for="edit-capacity">Capacity:</label>
-                                <input type="number" id="edit-capacity" required>
-                
-                                <label for="edit-manager">Manager:</label>
-                                <input type="text" id="edit-manager" required>
-                
-                                <button type="submit">Update Warehouse</button>
-                            </form>
-                        </div>
-                    </div>
-                
-                    <script>
-                        // JavaScript for handling form submission, edit, and delete actions
-                        let currentRow = null; // Track the current row being edited
-                
-                        // Handle Add Warehouse form submission
-                        document.getElementById('warehouse-form').addEventListener('submit', function(event) {
-                            event.preventDefault();
-                
-                            const name = document.getElementById('name').value;
-                            const location = document.getElementById('location').value;
-                            const capacity = document.getElementById('capacity').value;
-                            const manager = document.getElementById('manager').value;
-                
-                            const tableBody = document.getElementById('warehouse-table').getElementsByTagName('tbody')[0];
-                            const newRow = tableBody.insertRow();
-                
-                            newRow.insertCell(0).textContent = name;
-                            newRow.insertCell(1).textContent = location;
-                            newRow.insertCell(2).textContent = capacity;
-                            newRow.insertCell(3).textContent = manager;
-                
-                            // Action buttons (Edit, Delete)
-                            const actionCell = newRow.insertCell(4);
-                            
-                            // Edit button
-                            const editButton = document.createElement('button');
-                            editButton.textContent = 'Edit';
-                            editButton.onclick = function() {
-                                // Open the edit popup and populate with current row data
-                                document.getElementById('edit-popup').style.display = 'block';
-                                document.getElementById('edit-name').value = name;
-                                document.getElementById('edit-location').value = location;
-                                document.getElementById('edit-capacity').value = capacity;
-                                document.getElementById('edit-manager').value = manager;
-                
-                                currentRow = newRow; // Store the current row to update it after editing
-                            };
-                            actionCell.appendChild(editButton);
-                
-                            // Delete button
-                            const deleteButton = document.createElement('button');
-                            deleteButton.textContent = 'Delete';
-                            deleteButton.onclick = function() {
-                                // Remove the row from the table
-                                tableBody.deleteRow(newRow.rowIndex - 1);
-                            };
-                            actionCell.appendChild(deleteButton);
-                
-                            // Clear the form after submission
-                            document.getElementById('warehouse-form').reset();
-                        });
-                
-                        // Handle Edit Popup Form Submission
-                        document.getElementById('edit-form').addEventListener('submit', function(event) {
-                            event.preventDefault();
-                
-                            const updatedName = document.getElementById('edit-name').value;
-                            const updatedLocation = document.getElementById('edit-location').value;
-                            const updatedCapacity = document.getElementById('edit-capacity').value;
-                            const updatedManager = document.getElementById('edit-manager').value;
-                
-                            // Update the current row with the new data
-                            if (currentRow) {
-                                currentRow.cells[0].textContent = updatedName;
-                                currentRow.cells[1].textContent = updatedLocation;
-                                currentRow.cells[2].textContent = updatedCapacity;
-                                currentRow.cells[3].textContent = updatedManager;
-                            }
-                
-                            // Close the popup and reset the form
-                            document.getElementById('edit-popup').style.display = 'none';
-                            document.getElementById('edit-form').reset();
-                        });
-                
-                        // Close the popup when the close button is clicked
-                        document.getElementById('popup-close').addEventListener('click', function() {
-                            document.getElementById('edit-popup').style.display = 'none';
-                        });
-                    </script>
-                </body>
-                
-     
+                </div>
+            </div>
+        </div>
+
+        <!-- Warehouse List Table -->
+        <div class="table-container">
+            <h2>Warehouse List</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Warehouse ID</th>
+                        <th>Sub-District</th>
+                        <th>District</th>
+                        <th>Division</th>
+                        <th>Storage Capacity</th>
+                        <th>Humidity Level</th>
+                        <th>Temperature</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Manager Assigned</th>
+                    </tr>
+                </thead>
+                <tbody id="warehouse-table-body">
+                    <!-- Warehouse rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simulating data fetch from district_t and manager_t tables
+
+        const districts = [
+            { id: 1, name: "District 1", subDistricts: ["Sub-District 1", "Sub-District 2"], division: "Division 1" },
+            { id: 2, name: "District 2", subDistricts: ["Sub-District 3", "Sub-District 4"], division: "Division 2" },
+            { id: 3, name: "District 3", subDistricts: ["Sub-District 5", "Sub-District 6"], division: "Division 3" },
+        ];
+
+        const managers = {
+            1: { firstname: "John", lastname: "Doe", gender: "Male", username: "johndoe", email: "johndoe@example.com", status: "Active", affiliation_date: "2021-01-15" },
+            2: { firstname: "Jane", lastname: "Smith", gender: "Female", username: "janesmith", email: "janesmith@example.com", status: "Inactive", affiliation_date: "2020-05-20" },
+            3: { firstname: "Alice", lastname: "Johnson", gender: "Female", username: "alicejohnson", email: "alicejohnson@example.com", status: "Active", affiliation_date: "2019-11-10" },
+        };
+
+        // Populating the District Dropdown
+        const districtSelect = document.getElementById('district-select');
+        districts.forEach(district => {
+            const option = document.createElement('option');
+            option.value = district.id;
+            option.textContent = district.name;
+            districtSelect.appendChild(option);
+        });
+
+        // Update Sub-District and Division when a District is selected
+        districtSelect.addEventListener('change', function() {
+            const selectedDistrictId = this.value;
+            const selectedDistrict = districts.find(d => d.id == selectedDistrictId);
+            const subDistrictSelect = document.getElementById('sub-district-select');
+            const divisionSelect = document.getElementById('division-select');
+
+            // Clear previous options
+            subDistrictSelect.innerHTML = '<option value="">-- Select Sub-District --</option>';
+            divisionSelect.innerHTML = '<option value="">-- Select Division --</option>';
+
+            if (selectedDistrict) {
+                // Populate Sub-Districts
+                selectedDistrict.subDistricts.forEach(subDistrict => {
+                    const option = document.createElement('option');
+                    option.textContent = subDistrict;
+                    subDistrictSelect.appendChild(option);
+                });
+                // Populate Division
+                const divisionOption = document.createElement('option');
+                divisionOption.textContent = selectedDistrict.division;
+                divisionSelect.appendChild(divisionOption);
+            }
+        });
+
+        // Show Manager Information upon selecting a manager
+        document.getElementById('manager-select').addEventListener('change', function() {
+            const managerId = this.value;
+            const manager = managers[managerId];
+
+            if (manager) {
+                document.getElementById('manager-firstname').textContent = `First Name: ${manager.firstname}`;
+                document.getElementById('manager-lastname').textContent = `Last Name: ${manager.lastname}`;
+                document.getElementById('manager-gender').textContent = `Gender: ${manager.gender}`;
+                document.getElementById('manager-username').textContent = `Username: ${manager.username}`;
+                document.getElementById('manager-email').textContent = `Email: ${manager.email}`;
+                document.getElementById('manager-status').textContent = `Status: ${manager.status}`;
+                document.getElementById('manager-affiliation-date').textContent = `Affiliation Date: ${manager.affiliation_date}`;
+            } else {
+                document.getElementById('manager-info').innerHTML = '<h5>Manager Information:</h5><p>No Manager Selected</p>';
+            }
+        });
+
+        // Handling the form submission
+        document.getElementById('warehouse-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const warehouseID = Date.now(); // Generate a unique warehouse ID
+            const subDistrict = document.getElementById('sub-district-select').value;
+            const district = document.getElementById('district-select').options[document.getElementById('district-select').selectedIndex].text;
+            const division = document.getElementById('division-select').value;
+            const storageCapacity = document.getElementById('storage-capacity').value;
+            const humidityLevel = document.getElementById('humidity-level').value;
+            const temperature = document.getElementById('temperature').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+
+            // Get the selected manager
+            const managerId = document.getElementById('manager-select').value;
+            const managerName = managerId ? `Manager ${managerId}` : "None";
+
+            // Add the new warehouse row to the table
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${warehouseID}</td>
+                <td>${subDistrict}</td>
+                <td>${district}</td>
+                <td>${division}</td>
+                <td>${storageCapacity}</td>
+                <td>${humidityLevel}</td>
+                <td>${temperature}</td>
+                <td>${phone}</td>
+                <td>${email}</td>
+                <td>${managerName}</td>
+            `;
+            document.getElementById('warehouse-table-body').appendChild(newRow);
+
+            // Reset the form
+            document.getElementById('warehouse-form').reset();
+            document.getElementById('manager-info').innerHTML = '<h5>Manager Information:</h5><p>No Manager Selected</p>';
+        });
+    </script>
+</body>
   
 
       <script>
