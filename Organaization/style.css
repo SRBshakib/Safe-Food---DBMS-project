@@ -642,3 +642,84 @@ form ol li input[readonly] {
 background-color: #f9f9f9;
 cursor: not-allowed;
 }
+
+
+/* transport management code here */
+
+/* General Layout */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+h3 {
+  color: #333;
+}
+
+label {
+  font-size: 16px;
+  color: #555;
+}
+
+select, button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.dropdown-container, .assign-container, .result-container {
+  margin-bottom: 20px;
+}
+
+.driver-info {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.driver-info p {
+  margin: 5px 0;
+}
+
+.result-container {
+  background-color: #e9ecef;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: none;
+}
