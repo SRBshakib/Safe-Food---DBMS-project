@@ -416,6 +416,7 @@
     font-size: 18px;
     font-weight: bold;
     font-family:'Segoe UI'f;
+    
 }
 .table td {
   vertical-align: middle;
@@ -512,6 +513,7 @@
     font-weight: bold;
   }
 
+<<<<<<< Updated upstream
   /* settings style */
 /* General Styles */
 .personalDetails-section {
@@ -604,3 +606,7 @@ form ol li input[readonly] {
 background-color: #f9f9f9;
 cursor: not-allowed;
 }
+=======
+
+  
+>>>>>>> Stashed changes

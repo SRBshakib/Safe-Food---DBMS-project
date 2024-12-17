@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retailer</title>
+    <title>Retailer Order</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> <!-- Link to custom CSS -->
@@ -79,46 +79,60 @@
       <section class="home-section">
         <div class="home-content">
           <i class='bx bx-menu' ></i>
-          <span class="text">Reatiler Dashboard</span>
+          <span class="text">Reatiler Orders</span>
         </div>
         <div class="container">
           
 
               <div>
-                <a href="javascript:void(0)" class ="btn btn-primary me-1">
+                <a href="New_Order.html" class ="btn btn-primary me-1">
                 + New Order </a>
               </div>
           <!-- First Card: Upcoming Inspection List -->
           <div class="col-xl-10 col-lg-9 col-md-12 mb-4"></div>
-            <div class="card shadow-sm rounded-table">
-              <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Order List</h5>
-                <button class="btn btn-sm btn-primary" onclick="updateUpcomingList()">Update</button>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-borderless align-middle">
-                    <thead>
-                      <tr >
-                        <th><input type="checkbox"></th>
-                        <th>Product Name</th>
-                        <th>Order ID</th>
-                        <th>Batch ID</th>
-                        <th>Date</th>
-                        <th>Warehouse</th>
-                        <th>Location</th>
-                        <th>Quantity</th>
-                        <th>Exp.Date</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody id="upcomingListBody">
-                      <!-- Sample Rows (Limited to 5 initially) -->
-                    </tbody>
-                  </table>
+          <div class="card shadow-sm rounded-table">
+            <!-- Header Section with Title and Filter -->
+            <div class="card-header bg-white">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                <h5 class="mb-2 mb-md-0">Ordered Product List</h5>
+                <div class="filter-container">
+                  <label for="productType">Filter by Product Status:</label>
+                  <select id="productType">
+                    <option value="all">All</option>
+                    <option value="Received">Received</option>
+                    <option value="On Delivery">On Delivery</option>
+                    <option value="Cancelled">Cancelled</option>
+                  </select>
+                    
+                 
                 </div>
-                <button class="btn btn-primary" onclick="loadMoreUpcoming()">Load More</button>
               </div>
+            </div>
+          
+            <!-- Body Section -->
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-borderless align-middle">
+                  <thead>
+                    <tr>
+                      
+                      <th style="background-color: #c300ff; color: #ffffff; font-weight: bold; text-align: center;">Product Name</th>
+                      <th style="background-color: #c300ff; color: #fff; font-weight: bold; text-align: center;">Order ID</th>
+                      <th style="background-color: #c300ff; color: #fff; font-weight: bold; text-align: center;">Batch ID</th>
+                      <th style="background-color: #c300ff; color: #fff; font-weight: bold; text-align: center;">Date</th>
+                      <th style="background-color: #c300ff; color: #fff; font-weight: bold; text-align: center;">Warehouse</th>
+                      <th style="background-color: #c300ff; color: #fff; font-weight: bold; text-align: center;">Location</th>
+                      <th style="background-color: #c300ff; color: #fff; font-weight: bold; text-align: center;">Quantity</th>
+                      <th style="background-color: #c300ff; color: #fff; font-weight: bold; text-align: center;">Exp.Date</th>
+                      <th style="background-color: #c300ff; color: #fff; font-weight: bold; text-align: center;">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="upcomingListBody">
+                    <!-- Sample Rows (Limited to 5 initially) -->
+                  </tbody>
+                </table>
+              </div>
+              <button class="btn btn-primary" onclick="loadMoreUpcoming()">Load More</button>
             </div>
           </div>
 
@@ -127,34 +141,40 @@
   
 
       <script>
- // Sample Data for Upcoming Inspection List
- let upcomingListData = [
-      { productName: 'Organic Apples', id: 'P001', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'Narail Traders', Location: 'Lohagara,Narail,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
-      { productName: 'Fresh Tomatoes', id: 'P101', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'Ma Enterprise', Location: 'Godagari,Rajshahi,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
-      { productName: 'Frozen Fish', id: 'P201', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'B-baria Cold Storage', Location: 'Vairab,Narsingdi,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
-      { productName: 'Lettuce', id: 'P005', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'Momin himagar', Location: 'Uzirpu,Barishal,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
-      { productName: 'Canned Beans', id: 'P601', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'Narail Traders', Location: 'Lohagara,Narail,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
-      { productName: 'Banana', id: 'P111', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'Narail Traders', Location: 'Lohagara,Narail,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
-      { productName: 'Chicken', id: 'P123', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'Padma Storage', Location: 'Shibchar,Madaripur,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
-      { productName: 'Beef', id: 'P781', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'Brothers Co.', Location: 'Veramara,Kushtia,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
-      { productName: 'Carrot', id: 'P771', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'Khalil Warehouse', Location: 'Demra,Dhaka,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
-      { productName: 'Potato', id: 'P701', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'Narail Traders', Location: 'Lohagara,Narail,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
-      { productName: 'Grape', id: 'P301', batchId: 'BATCH123',date: '02 jan,2023',warehouse:'Khalil Warehouse', Location: 'Demra,Dhaka,Bangladesh', qty:'50KG',Exp_Date: '25 Dec 2024', status: 'Recived' },
+// Sample Data for Upcoming Inspection List
+let upcomingListData = [
+  { productName: 'Organic Apples', id: 'P001', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'Narail Traders', Location: 'Lohagara, Narail, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'Received' },
+  { productName: 'Fresh Tomatoes', id: 'P101', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'Ma Enterprise', Location: 'Godagari, Rajshahi, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'On Delivery' },
+  { productName: 'Frozen Fish', id: 'P201', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'B-baria Cold Storage', Location: 'Vairab, Narsingdi, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'Cancelled' },
+  { productName: 'Lettuce', id: 'P005', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'Momin Himagar', Location: 'Uzirpur, Barishal, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'Received' },
+  { productName: 'Canned Beans', id: 'P601', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'Narail Traders', Location: 'Lohagara, Narail, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'Cancelled' },
+  { productName: 'Banana', id: 'P111', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'Narail Traders', Location: 'Lohagara, Narail, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'On Delivery' },
+  { productName: 'Chicken', id: 'P123', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'Padma Storage', Location: 'Shibchar, Madaripur, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'Received' },
+  { productName: 'Beef', id: 'P781', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'Brothers Co.', Location: 'Veramara, Kushtia, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'On Delivery' },
+  { productName: 'Carrot', id: 'P771', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'Khalil Warehouse', Location: 'Demra, Dhaka, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'Cancelled' },
+  { productName: 'Potato', id: 'P701', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'Narail Traders', Location: 'Lohagara, Narail, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'Received' },
+  { productName: 'Grape', id: 'P301', batchId: 'BATCH123', date: '02 Jan, 2023', warehouse: 'Khalil Warehouse', Location: 'Demra, Dhaka, Bangladesh', qty: '50KG', Exp_Date: '25 Dec 2024', status: 'Received' },
+];
 
-      ];
+// Counters to track the number of items displayed
+let upcomingListCounter = 10;
 
-          // Counters to track the number of items displayed
-    let upcomingListCounter = 10;
-
-
-        // Function to load initial rows for Upcoming Inspection List
-        function loadUpcomingList() {
+// Function to load rows based on the filter
+function loadUpcomingList(filterStatus = "all") {
   const tbody = document.getElementById('upcomingListBody');
-  tbody.innerHTML = '';
-  for (let i = 0; i < upcomingListCounter; i++) {
-    if (upcomingListData[i]) {
-      tbody.innerHTML += `<tr>
-            <td><input type="checkbox"></td>
+  tbody.innerHTML = ''; // Clear current rows
+
+  // Filter and render rows
+  let displayedCount = 0;
+  for (let i = 0; i < upcomingListData.length; i++) {
+    if (
+      filterStatus === "all" || // Show all rows
+      upcomingListData[i].status.toLowerCase() === filterStatus.toLowerCase() // Filter rows by status
+    ) {
+      if (displayedCount < upcomingListCounter) { // Limit to `upcomingListCounter`
+        tbody.innerHTML += `
+          <tr>
+            
             <td>${upcomingListData[i].productName}</td>
             <td>${upcomingListData[i].id}</td>
             <td>${upcomingListData[i].batchId}</td>
@@ -163,11 +183,55 @@
             <td>${upcomingListData[i].Location}</td>
             <td>${upcomingListData[i].qty}</td>
             <td>${upcomingListData[i].Exp_Date}</td>
-            <td><span class="badge bg-success">${upcomingListData[i].status}</span></td>
-        </tr>`;
-        }
+            <td><span class="badge ${
+              upcomingListData[i].status === "Received"
+                ? "bg-success"
+                : upcomingListData[i].status === "On Delivery"
+                ? "bg-warning"
+                : "bg-danger"
+            }">${upcomingListData[i].status}</span></td>
+          </tr>
+        `;
+        displayedCount++;
       }
     }
+  }
+
+  // Show "No records found" if no rows match the filter
+  if (displayedCount === 0) {
+    tbody.innerHTML = `<tr><td colspan="10" class="text-center">No records found</td></tr>`;
+  }
+}
+
+// Event Listener for the Filter Dropdown
+document.getElementById("productType").addEventListener("change", function () {
+  const selectedStatus = this.value; // Get the selected filter value
+  loadUpcomingList(selectedStatus); // Reload the table with the filter applied
+});
+
+// Initial Load
+loadUpcomingList();
+
+
+
+
+ // Filter functionality
+ document.getElementById("productType").addEventListener("change", function() {
+            var selectedType = this.value;
+            var rows = document.querySelectorAll("#inventoryTable tbody tr");
+            rows.forEach(function(row) {
+                if (selectedType === "all" || row.getAttribute("data-type") === selectedType) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        });
+
+
+
+
+
 
 
         // Load More Functions
