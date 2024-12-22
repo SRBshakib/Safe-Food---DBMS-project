@@ -97,9 +97,6 @@ $topWarehousesResult = $conn->query($topWarehousesQuery);
               <i class='bx bx-grid-alt' ></i>
               <span class="link_name">Dashboard</span>
             </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Category</a></li>
-            </ul>
           </li>
 
           <li>
@@ -113,18 +110,7 @@ $topWarehousesResult = $conn->query($topWarehousesQuery);
               <i class='bx bx-line-chart' ></i>
               <span class="link_name">Warehouse Management</span>
             </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Chart</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="order_index.html">
-              <i class='bx bx-history'></i>
-              <span class="link_name">Orders</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#"></a></li>
-            </ul>
+            
           </li>
           <li>
             <a href="pending_users.php">
@@ -133,13 +119,16 @@ $topWarehousesResult = $conn->query($topWarehousesQuery);
             </a>
           </li>
           <li>
-            <a href="#">
-              <i class='bx bx-cog' ></i>
-              <span class="link_name">Settings</span>
+            <a href="analysis.php">
+              <i class='bx bx-support' ></i>
+              <span class="link_name">Analysis</span>
             </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#"></a></li>
-            </ul>
+          </li>
+          <li>
+            <a href="addProduct.php">
+              <i class='bx bx-support' ></i>
+              <span class="link_name">Add Product</span>
+            </a>
           </li>
           <li>
             <a href="#">

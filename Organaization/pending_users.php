@@ -96,29 +96,25 @@ $result = $conn->query($sql);
           <span class="logo_name">Safe Food</span>
         </div>
         <ul class="nav-links">
-          <li>
-            <a href="index.html">
+        <li>
+            <a href="organaization_dashboard.php">
               <i class='bx bx-grid-alt' ></i>
               <span class="link_name">Dashboard</span>
             </a>
           </li>
+
           <li>
-            <a href="trace_index.html">
+            <a href="manageTranceport.php">
               <i class='bx bx-pie-chart-alt-2' ></i>
-              <span class="link_name">Trace Product</span>
+              <span class="link_name">Transport</span>
             </a>
           </li>
           <li>
-            <a href="personInOrg.html">
+            <a href="warehouseManagement.php">
               <i class='bx bx-line-chart' ></i>
-              <span class="link_name">My Organization</span>
+              <span class="link_name">Warehouse Management</span>
             </a>
-          </li>
-          <li>
-            <a href="order_index.html">
-              <i class='bx bx-history'></i>
-              <span class="link_name">Orders</span>
-            </a>
+            
           </li>
           <li>
             <a href="pending_users.php">
@@ -126,6 +122,7 @@ $result = $conn->query($sql);
               <span class="link_name">Users</span>
             </a>
           </li>
+          <li>
           <li>
             <a href="#">
               <i class='bx bx-cog' ></i>

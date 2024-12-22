@@ -34,6 +34,27 @@ $transportQuery = "
     LEFT JOIN drivers_t d ON t.driverID = d.driverID
     ORDER BY t.transportID ASC";
 $transportResult = $conn->query($transportQuery);
+
+// Handle form submission to assign transport
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $vehicleRegNo = $_POST['vehicle_reg_no'];
+  $capacity = $_POST['capacity'];
+  $storageTemp = $_POST['storage_temp'];
+  $humidity = $_POST['humidity'];
+  $driverID = $_POST['driverID'];
+
+  $assignTransportQuery = "
+      INSERT INTO transport_t (vehicle_reg_no, Transport_capacity, transport_storage_temp, Humidity, driverID)
+      VALUES (?, ?, ?, ?, ?)";
+  $stmt = $conn->prepare($assignTransportQuery);
+  $stmt->bind_param("sdddi", $vehicleRegNo, $capacity, $storageTemp, $humidity, $driverID);
+
+  if ($stmt->execute()) {
+      echo "<script>alert('Transport assigned successfully!');</script>";
+  } else {
+      echo "<script>alert('Error assigning transport: " . $conn->error . "');</script>";
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,9 +81,6 @@ $transportResult = $conn->query($transportQuery);
               <i class='bx bx-grid-alt' ></i>
               <span class="link_name">Dashboard</span>
             </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Category</a></li>
-            </ul>
           </li>
 
           <li>
@@ -72,24 +90,19 @@ $transportResult = $conn->query($transportQuery);
             </a>
           </li>
           <li>
-              <li>
-                <a href="personInOrg.html">
-                  <i class='bx bx-line-chart' ></i>
-                  <span class="link_name">My Organization</span>
-                </a>
-                <ul class="sub-menu blank">
-                  <li><a class="link_name" href="#">Chart</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="order_index.html">
-                  <i class='bx bx-history'></i>
-                  <span class="link_name">Orders</span>
-                </a>
-                <ul class="sub-menu blank">
-                  <li><a class="link_name" href="#"></a></li>
-                </ul>
-              </li>
+            <a href="warehouseManagement.php">
+              <i class='bx bx-line-chart' ></i>
+              <span class="link_name">Warehouse Management</span>
+            </a>
+            
+          </li>
+          <li>
+            <a href="pending_users.php">
+              <i class='bx bx-support' ></i>
+              <span class="link_name">Users</span>
+            </a>
+          </li>
+          <li>
               <li>
                 <a href="warehouseManagement.html">
                   <i class='bx bx-cog' ></i>
@@ -158,27 +171,29 @@ $transportResult = $conn->query($transportQuery);
                   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
               </head>
               <body>
-                   <!-- Driver Selection and Assignment -->
+              <div class="container my-5">
+    <header class="text-center mb-4">
+        <h2>Assign Transport</h2>
+    </header>
+
     <div class="row">
+        <!-- Driver Selection -->
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-header">
-                    <h5>Select Driver and View Information</h5>
+                    <h5>Select Driver</h5>
                 </div>
                 <div class="card-body">
-                    <div class="mb-3">
-                        <label for="driver-select" class="form-label">Select Driver:</label>
-                        <select id="driver-select" class="form-select">
-                            <option value="">-- Select a Driver --</option>
-                            <?php while ($row = $driversResult->fetch_assoc()): ?>
-                                <option value="<?php echo $row['driverID']; ?>">
-                                    <?php echo $row['firstname'] . ' ' . $row['lastname']; ?>
-                                </option>
-                            <?php endwhile; ?>
-                        </select>
-                    </div>
+                    <label for="driver-select" class="form-label">Drivers:</label>
+                    <select id="driver-select" class="form-select">
+                        <option value="">-- Select a Driver --</option>
+                        <?php while ($row = $driversResult->fetch_assoc()): ?>
+                            <option value="<?php echo $row['driverID']; ?>">
+                                <?php echo $row['firstname'] . ' ' . $row['lastname']; ?>
+                            </option>
+                        <?php endwhile; ?>
+                    </select>
 
-                    <!-- Driver Information Display -->
                     <div id="driver-info" class="mt-4">
                         <h5>Driver Information</h5>
                         <p id="driver-name">Name: </p>
@@ -197,21 +212,21 @@ $transportResult = $conn->query($transportQuery);
                     <h5>Create Transport and Assign Driver</h5>
                 </div>
                 <div class="card-body">
-                    <form action="assign_transport.php" method="POST">
+                    <form method="POST" action="manageTranceport.php">
                         <div class="mb-3">
                             <label for="vehicle-reg-no" class="form-label">Vehicle Registration No:</label>
                             <input type="text" id="vehicle-reg-no" name="vehicle_reg_no" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <label for="transport-capacity" class="form-label">Transport Capacity:</label>
+                            <label for="transport-capacity" class="form-label">Transport Capacity (kg):</label>
                             <input type="number" id="transport-capacity" name="capacity" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <label for="transport-storage-temp" class="form-label">Storage Temperature:</label>
+                            <label for="transport-storage-temp" class="form-label">Storage Temperature (°C):</label>
                             <input type="number" id="transport-storage-temp" name="storage_temp" class="form-control" required>
                         </div>
                         <div class="mb-3">
-                            <label for="humidity" class="form-label">Humidity:</label>
+                            <label for="humidity" class="form-label">Humidity (%):</label>
                             <input type="number" id="humidity" name="humidity" class="form-control" required>
                         </div>
                         <div class="mb-3">
@@ -219,7 +234,7 @@ $transportResult = $conn->query($transportQuery);
                             <select id="driver" name="driverID" class="form-select" required>
                                 <option value="">-- Select a Driver --</option>
                                 <?php
-                                $driversResult->data_seek(0); // Reset pointer
+                                $driversResult->data_seek(0);
                                 while ($row = $driversResult->fetch_assoc()): ?>
                                     <option value="<?php echo $row['driverID']; ?>">
                                         <?php echo $row['firstname'] . ' ' . $row['lastname']; ?>
@@ -234,41 +249,39 @@ $transportResult = $conn->query($transportQuery);
         </div>
     </div>
 
-    <!-- Driver and Transport Details -->
+    <!-- Transport Details -->
     <div class="mt-5">
-        <h2 class="mb-4">Transport Details</h2>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <thead>
+        <h2>Transport Details</h2>
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Transport ID</th>
+                <th>Vehicle Reg. No</th>
+                <th>Capacity (kg)</th>
+                <th>Storage Temp (°C)</th>
+                <th>Humidity (%)</th>
+                <th>Driver</th>
+                <th>License No</th>
+                <th>Contact</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php while ($row = $transportResult->fetch_assoc()): ?>
                 <tr>
-                    <th>Transport ID</th>
-                    <th>Vehicle Reg. No.</th>
-                    <th>Capacity</th>
-                    <th>Storage Temp</th>
-                    <th>Humidity</th>
-                    <th>Driver Name</th>
-                    <th>License No</th>
-                    <th>Contact</th>
-                    <th>Status</th>
+                    <td><?php echo $row['transportID']; ?></td>
+                    <td><?php echo $row['vehicle_reg_no']; ?></td>
+                    <td><?php echo $row['Transport_capacity']; ?></td>
+                    <td><?php echo $row['transport_storage_temp']; ?></td>
+                    <td><?php echo $row['humidity']; ?></td>
+                    <td><?php echo $row['driver_name']; ?></td>
+                    <td><?php echo $row['driving_license_no']; ?></td>
+                    <td><?php echo $row['contactNo']; ?></td>
+                    <td><?php echo $row['status']; ?></td>
                 </tr>
-                </thead>
-                <tbody>
-                <?php while ($row = $transportResult->fetch_assoc()): ?>
-                    <tr>
-                        <td><?php echo $row['transportID']; ?></td>
-                        <td><?php echo $row['vehicle_reg_no']; ?></td>
-                        <td><?php echo $row['Transport_capacity']; ?> KG</td>
-                        <td><?php echo $row['transport_storage_temp']; ?> °C</td>
-                        <td><?php echo $row['humidity']; ?>%</td>
-                        <td><?php echo $row['driver_name']; ?></td>
-                        <td><?php echo $row['driving_license_no']; ?></td>
-                        <td><?php echo $row['contactNo']; ?></td>
-                        <td><?php echo $row['status']; ?></td>
-                    </tr>
-                <?php endwhile; ?>
-                </tbody>
-            </table>
-        </div>
+            <?php endwhile; ?>
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -276,7 +289,7 @@ $transportResult = $conn->query($transportQuery);
 document.getElementById('driver-select').addEventListener('change', function () {
     const drivers = {
         <?php
-        $driversResult->data_seek(0); // Reset pointer
+        $driversResult->data_seek(0);
         while ($row = $driversResult->fetch_assoc()): ?>
         "<?php echo $row['driverID']; ?>": {
             name: "<?php echo $row['firstname'] . ' ' . $row['lastname']; ?>",

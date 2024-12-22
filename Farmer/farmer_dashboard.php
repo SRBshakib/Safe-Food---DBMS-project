@@ -34,6 +34,15 @@ if (isset($_GET['product_type']) && !empty($_GET['product_type'])) {
     echo json_encode($product_names);
     exit;
 }
+// Handle dynamic product name fetching
+if (isset($_GET['product_type']) && !empty($_GET['product_type'])) {
+  $product_type = $_GET['product_type'];
+  $stmt = $pdo->prepare("SELECT productID, product_name FROM product_t WHERE product_type = :product_type");
+  $stmt->bindParam(':product_type', $product_type);
+  $stmt->execute();
+  echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+  exit;
+}
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -95,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         <ul class="nav-links">
           <li>
-            <a href="index.html">
+            <a href="farmer_dashboard.php">
               <i class='bx bx-grid-alt' ></i>
               <span class="link_name">Dashboard</span>
             </a>
@@ -222,36 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div >
               <div class="row">
 
-<!-- <div class="col-xl-4 col-lg-5 col-md-12 mb-4">
-  <div class="card shadow-sm rounded-table">
-      <div class="card-header bg-white d-flex justify-content-between align-items-center">
-          <h5 class="mb-0">Update Harvesting Product</h5>
-      </div>
-      <div class="card-body">
 
-          <form id="harvestProductForm" class="mb-4">
-              <div class="mb-3">
-                  <label for="product_type" class="form-label">Product Type</label>
-                  <select class="form-select" id="product_type" required>
-                      <option selected disabled value="">Select Type</option>
-                      <option value="Vegetable">Vegetable</option>
-                      <option value="Crop">Crop</option>
-                      <option value="Fruit">Fruit</option>
-                  </select>
-              </div>
-              <div class="mb-3">
-                  <label for="product_name_input" class="form-label">Product Name</label>
-                  <input type="text" class="form-control" id="product_name_input" required>
-              </div>
-              <div class="mb-3">
-                <label for="shelf_life_input" class="form-label">Shelf Life</label>
-                <input type="text" class="form-control" id="shelf_life_input" required>
-              </div>
-              <button type="button" class="btn btn-primary" onclick="addProduct()">Add Product</button>
-          </form>
-      </div>
-  </div>
-</div> -->
 
 
 

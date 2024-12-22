@@ -52,9 +52,6 @@ $warehouseResult = $conn->query($warehouseQuery);
               <i class='bx bx-grid-alt' ></i>
               <span class="link_name">Dashboard</span>
             </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Category</a></li>
-            </ul>
           </li>
 
           <li>
@@ -64,51 +61,19 @@ $warehouseResult = $conn->query($warehouseQuery);
             </a>
           </li>
           <li>
-          <li>
-            <a href="personInOrg.html">
+            <a href="warehouseManagement.php">
               <i class='bx bx-line-chart' ></i>
-              <span class="link_name">My Organization</span>
+              <span class="link_name">Warehouse Management</span>
             </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Chart</a></li>
-            </ul>
+            
           </li>
           <li>
-            <a href="order_index.html">
-              <i class='bx bx-history'></i>
-              <span class="link_name">Orders</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#"></a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="warehouseManagement.html">
-              <i class='bx bx-cog' ></i>
-              <span class="link_name">Manage Warehouse</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#"></a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="transportManagement.html">
-              <i class='bx bx-cog' ></i>
-              <span class="link_name">Manage Transport</span>
-            </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#"></a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="pending.html">
+            <a href="pending_users.php">
               <i class='bx bx-support' ></i>
-              <span class="link_name">Pending User</span>
+              <span class="link_name">Users</span>
             </a>
-            <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Help and Support</a></li>
-            </ul>
           </li>
+          
           <li>
             <a href="settingsPage.html">
               <i class='bx bx-support' ></i>
