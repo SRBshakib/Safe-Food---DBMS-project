@@ -122,12 +122,6 @@ $stmt_vehicle->close();
               <span class="link_name">Delevery For Retailers</span>
             </a>
           </li>
-          <li>
-          <a href="certification_rating.php">
-              <i class='bx bx-line-chart' ></i>
-              <span class="link_name">Certification and Rating</span>
-            </a>
-          </li>
         
           <li>
             <a href="#">
